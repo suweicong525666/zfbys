@@ -1,0 +1,92 @@
+<view class="head">
+  
+</view>
+<view style="background:#FF1F30">
+		<!-- <view  style="background-color: #e8463b;height:{{statusBarHeight}}px"></view> -->
+		<view class="relative">
+			<view class="text-center">
+				<image class="cashOut-banner" src="../../static/image/banner2.webp" mode="widthFix"></image>
+			</view>
+			<view class="flex justify-end">
+				<view class="flex align-center gz" onTap="jump_activityRules">
+					<image class="icon-40 margin-left-xs" src="../../static/image/gz.png" mode="widthFix"></image>
+					<text class="margin-left-xs" style="color:#FF1F30">活动规则</text>
+				</view>
+			</view>
+		</view>
+		<!-- 主体内容 -->
+		<view class="cashOut-main bg-white radius-20 margin-sm">
+			<view class="flex padding-top-sm" a:for="{{list}}" style="padding:20rpx 20rpx 0 20rpx;">
+				<view class="relative">
+					<image class='main-img' src="{{item.Img}}" mode="widthFix"></image>
+					<text class="Quota text-30 text-white yin">{{item.Quota}}元</text>
+				</view>
+				<view class="flex-70 {{index<list.length-1?'solid-b':''}} padding-bottom-sm">
+					<view class="text-30 text-black bold margin-top-sm">
+						{{item.Quota}}元红包限{{item.Quantity}}份
+					</view>
+					<view class="flex justify-between margin-top-sm">
+						<text class="text-E8463B text-28 bold" style="color:#FF9422">{{item.Coin}}金币</text>
+						<text class="text-24 text-999999">共{{item.Number}}人参与</text>
+					</view>
+					<view class="kg margin-top-sm" a:if="{{item.DrawStatus==1}}" >
+						<text>{{item.DrawTime}}自动开奖</text>
+						<text class="cashGo"onTap="choujiang" data-id="{{item.Id}}" data-coin="{{item.Coin}}" data-drawTime="{{item.DrawTime}}"style="background:#FF4C5B">我要试试</text>
+					</view>
+					<view class="kg margin-top-sm" a:else >
+						<text>{{item.DrawTime}}已开奖</text>
+						<text class="cashGo2"  >我要试试</text>
+					</view>
+				</view>
+			</view>
+		</view>
+     
+		<!-- 模态框 -->
+		<view class="modal" a:if="{{openModal}}"></view>
+		<view class="qd-modal" a:if="{{openModal&&join==0}}">
+        <view class="flex justify-center">
+           <view class="qdbg">
+                <view style="padding-top:193rpx">
+                      <view class="flex align-center  justify-center">
+                          <text class="text-56 text-white" style="color:#FC401D">{{Coin}}</text>
+                          <text class="text-40 bold text-white"style="color:#FC401D">金币</text>
+                      </view>
+                  </view>
+                  <view class="text-center margin-top" style="width:80%;margin:20rpx auto;color:#FC401D;margin-bottom:130rpx">
+                    <text class="text-28 ">开奖后,奖励会直接发放到余额账户中,</text>
+                          <text class="text-30 ">“我的余额”</text>
+                          <text class="text-28 ">记得去查看哦</text>
+                  </view>
+                  	<view class="buttons" onTap="Join" >
+					              
+				            </view>
+            </view>
+        </view>
+       	<view class="text-center close">
+				  <image onTap="close" class="icon-70" src="../../../static/image/del.png" mode="widthFix"></image>
+			  </view>
+		</view>
+		<!-- 报名成功 -->
+		<view class="qd-modal" a:if="{{openModal&&join==1}}">
+			<view class="text-center relative">
+				<image src="../../static/image/bmcg.webp" style="width:90%" mode="widthFix"></image>
+				<view class="text-center close2">
+					<image onTap="close" class="icon-70" src="../../../static/image/del.png" mode="widthFix"></image>
+				</view>
+				<view  class="gg relative" style="margin:20rpx auto;padding-bottom:{{alBanShow?'0.25rem':''}}">
+              <view class="flex justify-center" >
+                  	<ad class=""
+                      unit-id ="ad_tiny_2021002151689730_202107052200014404"
+                      onLoad ="onRenderSuccess"
+						/>
+              </view>
+				</view>
+				<view class="Join-text3" style="color:#FFFFFF">
+					{{DrawTime}}自动开奖，记得回来查看哦
+				</view>
+				<view class="Join-text2" onTap="close">
+					
+				</view>
+			</view>
+		</view>
+	</view>

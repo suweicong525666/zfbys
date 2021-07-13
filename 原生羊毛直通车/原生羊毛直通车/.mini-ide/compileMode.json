@@ -1,0 +1,16 @@
+{
+  "modes": [
+    {
+      "title": "邀请好友",
+      "page": "pages/child/invitation/invitation"
+    },
+    {
+      "title": "开通会员",
+      "page": "pages/child/kthy/kthy"
+    },
+    {
+      "title": "会员专属权益",
+      "page": "pages/child/interests/interests"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "defaultTitle": "开心走路",
+  "allowsBounceVertical": "NO",
+  "titleBarColor": "#FFFFFF",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+    "usingComponents": {
+    "ad-task": "plugin://myPlugin/ad-task",
+    "modal":"/components/modal/modal",
+    "subscribe-msg": "plugin://subscribeMsg/subscribe-msg",
+    "feeds": "plugin://xlightPlugin/feeds"
+  }
+}

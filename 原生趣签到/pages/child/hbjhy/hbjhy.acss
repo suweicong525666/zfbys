@@ -1,0 +1,14 @@
+.head{
+  width: 100%;
+height: 160rpx;
+opacity: 1;
+background: linear-gradient(90deg,#f2276e, #7c06fc);
+}
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #470C64
+}
+.ad{
+  width:650rpx
+}

@@ -1,0 +1,7 @@
+{
+   "defaultTitle": "我的余额",
+  "titleBarColor": "#52b579",
+  "allowsBounceVertical": "NO",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES"
+}

@@ -1,0 +1,124 @@
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #6000EB;
+  padding-bottom: 20rpx;
+}
+.top{
+  width: 100%;
+  height: 892rpx;
+  background-image: url('/static/image/yq_banner.webp');
+  background-position: center;
+  background-size: 100% 100%
+}
+.top_child{
+  position:absolute;
+  left: 50%;
+  bottom:150rpx;
+  transform: translate(-50%)
+}
+.mine{
+ width: 282rpx;
+ text-align: center;
+ margin: 0 auto;
+height: 55rpx;
+line-height: 55rpx;
+opacity: 1;
+background: #ffcdd2;
+border-radius: 28rpx;
+font-weight: 700;
+text-align: center;
+color: #ff2a55;
+display: inline-block
+}
+.text-FF2A55{
+  color:#FF2A55
+}
+.text-FF7192{
+  color:#FF7192
+}
+.bg-FF2456{
+  background-color: #FF2456
+}
+.jl{
+  width: 130rpx;
+  text-align: center;
+height: 80rpx;
+line-height: 80rpx;
+opacity: 1;
+background: #ffebac;
+border-radius: 20rpx 0px 20rpx 0px;
+font-size: 28rpx;
+font-weight: 700;
+text-align: center;
+color: #ff2a55;
+}
+.yqb{
+  width: 340rpx;
+  height: 98rpx;
+  line-height: 90rpx;
+  background-image: url('/static/image/yqb.webp');
+  background-position: center;
+  background-size: 100% 100%;
+}
+.gong{
+  width: 282rpx;
+  height: 50rpx;
+  margin: 0 auto;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  background-color: #ff5078;
+  border-radius: 25rpx;
+}
+.userImg{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%,-0.1rem);
+    transform: translate(-50%,-0.1rem);
+}
+.share{
+  width: 515rpx;
+  height: 99rpx;
+  background-color:#ff5f2a;
+  border:none;
+  color:#fff;
+  border-radius: 50rpx;
+}
+.lb{
+  width: 1px;
+height: 50rpx;
+opacity: 1;
+border-right: 2rpx solid #FFAABB;
+position: absolute;
+right: 0%;
+bottom:50%;
+transform: translate(0,50%)
+}
+.modal-main{
+  position: fixed;
+  width: 100%;
+  top:50%;
+  transform: translate(0,-50%);
+  z-index: 9999
+}
+.hybg{
+  width: 670rpx;
+  height: 735rpx;
+  background-image: url('/static/image/hyzx.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%
+}
+.padding-lr-100{
+  padding-left: 100rpx;
+  padding-right: 100rpx;
+}
+
+.close{
+  width: 70rpx;
+  height: 70rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 0
+}

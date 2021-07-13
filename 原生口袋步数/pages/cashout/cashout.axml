@@ -1,0 +1,8 @@
+<!-- <ad-list resourceId="{{resourceId}}" /> -->
+<view style="height:20rpx"></view>
+ <feeds  
+        spaceCode="ad_tiny_2021002144611173_202106152200013410"
+        onRenderSuccess="onRenderSuccess_last"
+        onRenderFail="onRenderFail_last"
+        onSaveRef="onSaveRef"
+      >

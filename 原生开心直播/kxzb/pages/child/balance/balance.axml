@@ -1,0 +1,105 @@
+<view>
+      <view class="top">
+          <view class="flex justify-between align-center padding-lr-sm">
+            <view class="flex">
+              <image class="icon-120 radius-all" src="{{userInfo.HeadImg?userInfo.HeadImg:'/static/image/moren.png'}}" mode="aspectFit"></image>
+              <view class="margin-left-sm padding-top-sm">
+                <view class="text-white text-34">
+                  {{userInfo.NickName?userInfo.NickName:userInfo.UserName}}
+                </view>
+                <view class="text-white text-24 margin-top-xs">
+                  IC：{{userInfo.AccountId}}
+                </view>
+              </view>
+            </view>
+            <view class="flex align-center justify-center top_r" onTap="jump_balanceDetail" data-index="0">
+              <text class="text-white text-24">收支明细</text>
+              <text class="lg text-white cuIcon-right margin-left-xs" ></text>
+            </view>
+          </view>
+      </view>
+		<view class="main">
+      <view class="grid col-2 bg-white padding-sm radius-20 padding-tb-xl ">
+          <view class="flex align-center relative" style="border-right:1rpx solid #e5e5e5">
+              <image class="icon-80" mode="scaleToFill" src="/static/image/qb.png"/>
+              <view class="margin-left">
+                  <view class="text-black bold text-34">
+                     	{{userInfo.Money?userInfo.Money:'0.00'}}
+                  </view>
+                  <view class="text-24 text-666666 padding-top-5">
+                     我的余额（元）
+                  </view>
+              </view>
+          </view>
+          <view class="flex align-center padding-left-sm">
+              <image class="icon-80" mode="scaleToFill" src="/static/image/jinbi.png"/>
+              <view class="margin-left">
+                  <view class="text-black bold text-34">
+                      {{userInfo.Jifenbao}}
+                  </view>
+                  <view class="text-24 text-666666 padding-top-5">
+                     我的集分包（个）
+                  </view>
+              </view>
+          </view>
+      </view>
+      <view class="bg-white margin-top-sm padding-sm radius-20 padding-tb">
+          <view class="text-34 bold text-black margin-bottom">
+          提现余额
+          </view>
+          <view class="flex grid col-3 margin-top-sm">
+            <view class="text-center margin-bottom-sm" a:for="{{moneyList}}" a:for-index="index" onTap="tabMoney" data-index="{{index}}">
+              <view class="{{index==moneyIndex?'moneyButton':'moneyButton-no'}}" >
+                {{item.ButtonAmount}}
+              </view>
+            </view>
+            
+          </view>
+          <view class="submit margin-top" onTap="submit">
+            确认提现
+          </view>
+      </view>
+		</view>
+		<view class="jfb padding">
+			<view class="text-24 text-black">
+				已赚集分宝(<text style="color:red">集分宝实时到账，支付宝搜索[集分宝]可查看</text>)
+			</view>
+			<view class="margin-top flex justify-between align-center solid-bottom padding-bottom">
+				<view class="text-40 bold">
+					{{userInfo.Jifenbao}}
+				</view>
+				<view class="" onTap="jump_balanceDetail" data-index="1">
+					<text class="text-24 text-999999">查看明细</text>
+					<text class="text-24 text-999999 cuIcon-right margin-left-xs"></text>
+				</view>
+			</view>
+			<view class="margin-top-sm text-24 text-999999">
+				10集分宝=0.1元，当前已赚{{userInfo.Jifenbao}}集分宝
+			</view>
+		</view>
+		<!-- 规则说明 -->
+		<view class="margin">
+			<view class="text-black text-24">
+				规则说明：
+			</view>
+			<view class="text-999999 text-24 margin-top-sm">
+				1.每日只可提现一次，单次最少提现0.1元，最大可提现10元。	
+			</view>
+			<view class="text-999999 text-24 margin-top-xs">
+				2.提现预计10秒内到账(如提现是遇到高峰期，提现可能会有延迟，我们会在一个工作日内处理，请耐心等待;
+			</view>
+			<view class="text-999999 text-24 margin-top-xs">
+				3.提现清零:自2021-03-01起，如果您连续60日未登录，您可提现金额将会自动清零，系统会在清零前向用户发送提现提醒，如用户仍未提现，则视为用户自愿放弃提现的权利;
+			</view>
+			<view class="text-999999 text-24 margin-top-xs">
+				4.提现到账查询:支付宝->我的->账单。若有名称为[开心直播提现]的账单，即为成功到账;您也可以点击”余额明细"查看提现是否成功;
+			</view>
+			<view class="text-999999 text-24 margin-top-xs">
+				5.集分宝提现后，您可以在支付宝搜索”集分宝"，进入集分宝官方小程序，通过"我的"->"集分宝明细"查看是否提现成功
+			</view>
+			<view class="text-999999 text-24 margin-top-xs">
+				6.若提现遇到问题，您可以通过"我的"-> "意见反馈"联系我们，我们会在一个工作日内处理您反馈的问题;
+			</view>
+
+		</view>
+	</view>

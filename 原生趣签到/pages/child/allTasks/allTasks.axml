@@ -1,0 +1,2 @@
+	<modal ref="childMethods" type="2"></modal>
+  <view a:if="{{isLoadOpen}}" class="cu-load text-999999 {{isLoad?'loading':'over'}}"></view>

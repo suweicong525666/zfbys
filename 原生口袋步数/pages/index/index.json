@@ -1,0 +1,12 @@
+{
+  "defaultTitle": "口袋步数",
+  "allowsBounceVertical": "NO",
+  "titleBarColor": "#FFFFFF",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+    "usingComponents": {
+       "subscribe-msg": "plugin://subscribeMsg/subscribe-msg",
+    "ad-task": "plugin://myPlugin/ad-task",
+    "feeds": "plugin://xlightPlugin/feeds"
+  }
+}

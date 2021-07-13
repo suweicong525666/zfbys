@@ -1,0 +1,151 @@
+.top{
+width: 100%;
+height: 380rpx;
+opacity: 1;
+background: #222222;
+}
+.bg{
+  width: 690rpx;
+  height: 342rpx;
+  background-image: url('/static/image/bj.webp');
+  background-position: center;
+  background-size: 100% 100%;
+  margin: -280rpx auto;
+  padding-left:30rpx;
+  padding-top:65rpx
+}
+.text-DEBE89{
+  color:#DEBE89
+}
+.text-eeeeee{
+  color:#eeeeee
+}
+.main{
+  width:33.33%;
+display: flex;
+margin-top: 20rpx;
+
+}
+.main .child{
+  opacity: 1;
+border-radius: 12rpx;
+display: inline-block;
+width: 210rpx;
+height:100%;
+padding-bottom:20rpx;
+}
+.bg1{
+  background: #faf6eb;
+  border: 2rpx solid #e8cd99;
+}
+.bg2{
+  background: #f7f7f7;
+  border: 2rpx solid #ececec;
+}
+.text-DDB768{
+  color:#DDB768
+}
+.text-50{
+  font-size: 50rpx
+}
+.buy{
+  width: 690rpx;
+  margin: 40rpx auto;
+  text-align: center;
+height: 88rpx;
+line-height: 88rpx;
+opacity: 1;
+background: linear-gradient(90deg,#f3d9aa, #e6c487);
+border-radius: 44px;
+box-shadow: 0px 4px 20px 0px rgba(0,0,0,0.16); 
+font-size: 32rpx;
+font-weight: 700
+}
+.modal_main{
+  width:100%;
+  height: 735rpx;
+  background-image: url('/static/image/hbbt.webp');
+  background-position: center;
+  background-size: 100% 100%;
+  position: fixed;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 11;
+  padding-top: 80rpx;
+}
+.padding-left-160{
+  padding-left: 160rpx
+}
+.text-7A492F{
+  color:#7A492F
+}
+.text-875940{ 
+  color:#875940
+}
+.text-78482F{
+  color:#78482F
+}
+.back{
+  width: 420rpx;
+height: 140rpx;
+ background-image: url('/static/image/back.webp');
+  background-position: center;
+  background-size: 100% 100%;
+  margin:100rpx auto;
+}
+.jxzfBg{
+  width: 650rpx;
+  height: 680rpx;
+  background-image: url('/static/image/jxzf.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%
+}
+.icon-60{
+  width: 60rpx;
+  height: 60rpx;
+}
+.text-F4E3B9{
+  color:#F4E3B9
+}
+.text-CBBB92{
+  color:#CBBB92
+}
+.padding-lr-100{
+  padding-left: 100rpx;
+  padding-right: 100rpx;
+}
+.modal-main2{
+  position: fixed;
+  width: 100%;
+  top:40%;
+  transform: translate(0,-50%);
+  z-index: 9999
+}
+.jx{
+  width: 280rpx;
+  text-align: center;
+  height: 70rpx;
+  line-height: 70rpx;
+  opacity: 1;
+  background: linear-gradient(90deg,#fee1cb 3%, #e9c697);
+  border-radius: 35rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+  color:#000
+}
+.close{
+  width: 70rpx;
+  height: 70rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 0
+}
+.text-323232{
+  color:#323232
+}
+.icon-90{
+  width: 90rpx;
+  height: 90rpx;
+}

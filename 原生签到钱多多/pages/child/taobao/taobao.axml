@@ -1,0 +1,14 @@
+<view class="text-center relative">
+    <image mode="widthFix" style="width:100%" src="/static/image/bj3.jpg"/>
+</view>
+<view class="padding-left text-32  margin-top-xs flex align-center">
+        <text class="text-black bold">浏览点击两个商品得</text>
+        <text class="text-FC4A10 bold">0.01-0.88红包</text>
+        <image class="icon-80 margin-left-sm ami" mode="scaleToFill" src="/static/image/shou.webp"/>
+    </view>
+<feeds  
+        spaceCode="ad_tiny_2021002144668192_202106152200013434"
+        onRenderSuccess="onRenderSuccess_last"
+        onRenderFail="onRenderFail_last"
+        onSaveRef="onSaveRef"
+      >

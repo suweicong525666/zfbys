@@ -1,0 +1,186 @@
+<view class="top"></view>
+
+<view class="bg">
+    <view class="flex align-center">
+        <image class="icon-100" mode="scaleToFill" src="/static/image/toux2.webp"/>
+        <view class="margin-left">
+            <view class="text-DEBE89 text-32">
+              专享特权
+            </view>
+            <view class="text-eeeeee text-24 margin-top-xs">
+              我的会员
+            </view>
+        </view>
+    </view>
+    <view class="text-26 text-white" style="margin-top:100rpx">
+      开通会员 立享超值优惠
+    </view>
+</view>
+<view style="height:330rpx"></view>
+<view class="padding-lr-xl flex justify-between">
+    <view>
+        <view class="text-center">
+            <image class="icon-90" mode="scaleToFill" src="/static/image/hy-1.webp"/>
+            <view class="text-center text-323232 text-24 padding-top-xs">
+                现金红包
+            </view>
+        </view>
+    </view>
+     <view>
+        <view class="text-center">
+            <image class="icon-90" mode="scaleToFill" src="/static/image/hy-2.webp"/>
+            <view class="text-center text-323232 text-24 padding-top-xs">
+                邀请奖励
+            </view>
+        </view>
+    </view>
+     <view>
+        <view class="text-center">
+            <image class="icon-90" mode="scaleToFill" src="/static/image/hy-3.webp"/>
+            <view class="text-center text-323232 text-24 padding-top-xs">
+                下级佣金
+            </view>
+        </view>
+    </view>
+     <view>
+        <view class="text-center">
+            <image class="icon-90" mode="scaleToFill" src="/static/image/hy-4.webp"/>
+            <view class="text-center text-323232 text-24 padding-top-xs">
+                特享优惠
+            </view>
+        </view>
+    </view>
+</view>
+<view class="padding-lr margin-top-xl">
+    <view class="text-32 text-black bold padding-bottom">
+      请选择会员套餐
+    </view>
+    <view class="flex flex-wrap" style="width:720rpx">
+        <view class="main " a:for="{{list}}">
+            <view class="child {{tabIndex==index?'bg1':'bg2'}}" onTap="tab" data-index="{{index}}">
+                <view class="text-black text-30 bold margin-top text-center">
+                  {{item.Title}}
+                </view>
+                 <view class="text-DDB768  margin-top-sm text-center">
+                    <text class="text-26">￥</text>
+                    <text class="text-50">{{item.Price}}</text>
+                </view>
+                <view class="text-24 text-999999 flex justify-center margin-top-sm" >
+                    <text class="text-center" style="width:145rpx">每月自动续费 可随时关闭</text>
+                </view>
+            </view>
+        </view>
+       
+     
+    </view>
+</view>
+
+<!-- <view class="padding-lr flex align-center margin-top">
+    <image class="icon-40" mode="scaleToFill" src="/static/image/gou.webp"/>
+    <text class="margin-left-sm text-24 text-999999">到期自动续费1个月，可随时取消</text>
+</view> -->
+
+<view class="buy" onTap="buy">
+  立即购买
+</view>
+
+<!-- <view class="padding-lr padding-top-xs">
+    <view class="text-28 text-black bold">
+      规则说明
+    </view>
+    <view class="text-24 text-999999 margin-top-sm" style="width:4rem;line-height:0.35rem">
+      1.到期自动续费1个月，可随时取消； 2.到期自动续费1个月，可随时取消； 3.到期自动续费1个月，可随时取消；
+    </view>
+</view> -->
+
+<!-- 开通会员后的模态框 -->
+<view a:if="{{modalname=='kaitong'}}">
+   	<view class="modal"></view>
+     <view class="modal_main">
+        <view class="padding-left-160 text-56 text-7A492F ">
+          恭喜您
+        </view>
+        <view class="padding-left-160 text-56 text-7A492F margin-top-xs ">
+           成为{{list[tabIndex].Title}}会员
+        </view>
+        <view class="padding-left-160 text-24 text-875940 margin-top-sm ">
+           您将享受如下特权
+        </view>
+        <view class="flex justify-around" style="width:70%;margin:30rpx auto">
+            <view class="text-center">
+                <image class="icon-80" mode="scaleToFill" src="/static/image/icon1.webp"/>
+                <view class="text-26 text-78482F margin-top-xs">
+                  每日工资
+                </view>
+            </view>
+            <view class="text-center">
+                <image class="icon-80" mode="scaleToFill" src="/static/image/icon2.webp"/>
+                <view class="text-26 text-78482F margin-top-xs">
+                  邀请现金奖励
+                </view>
+            </view>
+            <view class="text-center">
+                <image class="icon-80" mode="scaleToFill" src="/static/image/icon3.webp"/>
+                <view class="text-26 text-78482F margin-top-xs">
+                  好友帮赚
+                </view>
+            </view>
+        </view>
+        <view class="back" onTap="back">
+          
+        </view>
+        <view class="flex justify-center">
+            <image class="icon-70" onTap="closeModal" mode="scaleToFill" src="/static/image/del.webp"/>
+        </view>
+     </view>
+</view>
+
+
+<view a:if="{{modalname=='jxzf'}}">
+    <view class="modal"></view>
+    <view class="modal-main2">
+        <view class="flex justify-center">
+          <view class="jxzfBg">
+              <view class="flex justify-around padding-lr-100" style="margin-top:3.5rem">
+                  <view>
+                      <view class="text-center">
+                          <image class="icon-60" mode="scaleToFill" src="/static/image/icon3.png"/>
+                      </view>
+                      <view class="text-F4E3B9 text-center text-24 margin-top-xs">
+                          现金红包
+                      </view>
+                      <view class="text-CBBB92 text-center text-24 margin-top-xs" style="width:160rpx">
+                          每日0.88元现金红包
+                      </view>
+                  </view>
+                   <view>
+                      <view class="text-center">
+                          <image class="icon-60" mode="scaleToFill" src="/static/image/icon2.png"/>
+                      </view>
+                      <view class="text-F4E3B9 text-center text-24 margin-top-xs">
+                          邀请奖励
+                      </view>
+                      <view class="text-CBBB92 text-center text-24 margin-top-xs" style="width:160rpx">
+                          邀请好友奖励1.59元
+                      </view>
+                  </view>
+                   <view>
+                      <view class="text-center">
+                          <image class="icon-60" mode="scaleToFill" src="/static/image/icon1.png"/>
+                      </view>
+                      <view class="text-F4E3B9 text-center text-24 margin-top-xs">
+                          更多权益
+                      </view>
+                      <view class="text-CBBB92 text-center text-24 margin-top-xs" style="width:160rpx">
+                         低价购、特权享
+                      </view>
+                  </view>
+              </view>
+              <view class="flex justify-center margin-top">
+                  <text class="jx" onTap="buy" >继续支付</text>
+              </view>
+               <image onTap="closeModal" class="close" mode="scaleToFill" src="/static/image/del.png"/>
+          </view>
+        </view>
+    </view>
+</view>

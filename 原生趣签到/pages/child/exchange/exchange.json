@@ -1,0 +1,13 @@
+{
+  "defaultTitle": "金币兑换",
+  "allowsBounceVertical": "NO",
+ "transparentTitle": "auto",
+ "titleBarColor": "#F55073",
+  "titlePenetrate": "NO",
+  	"usingComponents": {
+     "i-count-down": "iview-aliapp/dist/dist/count-down/index",
+     "subscribe-msg": "plugin://subscribeMsg/subscribe-msg",
+      "feeds": "plugin://xlightPlugin/feeds",
+      "modal":"/components/modal/modal"
+	}
+}

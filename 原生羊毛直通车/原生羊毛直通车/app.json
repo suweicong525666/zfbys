@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/child/rwjlj/rwjlj",
+    "pages/child/yqjlj/yqjlj",
+    "pages/child/invitation/invitation",
+    "pages/child/kthy/kthy",
+    "pages/center/center",
+    "pages/child/feedback/feedback",
+    "pages/child/myFeedback/myFeedback",
+    "pages/child/reply/reply",
+    "pages/child/interests/interests"
+  ],
+  "tabBar": {
+    "textColor": "#999999",
+    "selectedColor": "#FD3A3A",
+    "backgroundColor": "#ffffff",
+    "items": [
+      {
+        "pagePath": "pages/index/index",
+        "name": "首页",
+        "icon": "static/image/tar_sy2.webp",
+        "activeIcon": "static/image/tar_sy1.webp"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "name": "会员中心",
+        "icon": "static/image/tar_wd2.webp",
+        "activeIcon": "static/image/tar_wd1.webp"
+      }
+    ]
+  },
+  "window": {
+    "defaultTitle": "淘金直通车"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "抽现金",
+  "allowsBounceVertical": "NO",
+  "titleBarColor": "#F22A52",
+  "transparentTitle": "none",
+  "titlePenetrate": "YES",
+  "usingComponents": {}
+}

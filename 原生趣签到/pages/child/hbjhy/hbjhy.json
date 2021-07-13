@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "专属红包",
+  "allowsBounceVertical": "NO",
+  "titleBarColor": "#7C06FC",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  "usingComponents": {
+       "subscribe-msg": "plugin://subscribeMsg/subscribe-msg",
+       "modal":"/components/modal/modal"
+  }
+}

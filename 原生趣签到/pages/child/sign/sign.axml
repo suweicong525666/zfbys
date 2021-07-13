@@ -1,0 +1,150 @@
+	<!-- 签到广告模态框弹窗 -->
+		<view  >
+			<view class="modal" a:if="{{modalname=='first'}}"></view>
+			<view class="{{modalname=='first'?'modal-main':'modal-main2'}}">
+				<view class="relative text-center">
+					<view class="smileBox">
+						<image style="width: 250rpx;" src="../../../static/image/gg_1.png" mode="widthFix"></image>
+					</view>
+					<view class="smileBox2 flex justify-between">
+						<image class="icon-50" src="../../../static/image/gg_2.png" mode="widthFix"></image>
+						<image class="icon-50" src="../../../static/image/gg_2.png" mode="widthFix"></image>
+					</view>
+					<view class="text-26 text-666666 text-center bg-white radius-20 padding-top-sm" style="width:95%;height:320rpx;margin:20rpx auto">
+						<view class="margin-top-lg padding-lr padding-bottom-0 relative" style="height: 130rpx;"  onTap="jump_bannerTs" data-index="0"  a:if="{{signBanShow2}}">
+							<view class="flex justify-center" >
+								<ad class="sign-ad1"
+								unit-id ="ad_tiny_2021002151689730_202105212200011640"
+								onLoad ="onRenderSuccess_sign"
+								onError ="onRenderFail"
+								/>
+							</view>
+						</view>
+             <view class="margin-top-lg padding-lr padding-bottom-0 relative" style="height: 130rpx;"   a:if="{{signBanShow2==false}}">
+							<view class="flex justify-center">
+              	<swiper class="screen-swiper ad2 square-dot"   indicator-dots="{{true}}" circular="{{true}}"
+                  autoplay="{{true}}" interval="5000" duration="500">
+                    <swiper-item a:for="{{signBanner}}" >
+                      <view class=""  onTap="jump_bannerTs"  data-index="1" data-JumpType="{{item.JumpType}}" data-item="{{item}}">
+                        <image src="{{item.Img}}" mode="scaleToFill" style="width: 688rpx;height: 160rpx" ></image>
+                      </view>
+                    </swiper-item>
+			          </swiper>
+                  <!-- <image class="sign-ad1" style="height:1.5rem" mode="scaleToFill" src="{{list.SignOutputList[list.Qd].Img}}"/> -->
+							</view>
+						</view>
+						<view class="flex justify-center padding-sm margin-top-xl">
+							<text class="text-black text-24">点击上方广告浏览{{list.SignOutputList[list.Qd].BrowseTime}}秒完成签到，</text>
+							<text class="text-24 text-FF4C5B">领取奖励》</text>
+						</view>
+					</view>
+					<view class="margin-top" >
+						<image onTap="closeModal" class="icon-70" src="/static/image/del.png" mode="widthFix"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+  
+  <view >
+		<view class="signIn-head" style="margin-top:-2px">
+			<view class="text-name">
+				我的金币
+			</view>
+			<view class="text-num">
+				{{userInfo.Coin?userInfo.Coin:0}}
+			</view>
+		</view>
+
+   
+		<!-- 连续签到 -->
+		<view class="bg-white signIn-shadow margin radius-20 padding-lr padding-top-sm padding-bottom margin-top" >
+			<view class="flex justify-between">
+				<view class="">
+					<text class="text-28 text-black">已经连续签到</text>
+					<text class="text-32 text-FF4C5B">{{list.ContinuousSign}}</text>
+					<text class="text-28 text-black">天</text>
+				</view>
+        <view>
+            	<text class="text-28 text-999999">免费领取</text>
+              <text class="text-28 text-FF4C5B">现金红包</text>
+        </view>
+			</view>
+			<view class="flex flex-wrap  padding-top">
+				<!-- 1-6天 -->
+				<view class="margin-bottom {{index==3?'margin-right-0':''}} {{index<list.ContinuousSign%7?'sihnIn-box':'sihnIn-box-n'}} {{list.ContinuousSign>0&&list.ContinuousSign%7==0?'sihnIn-box':'sihnIn-box-n'}}"  a:for="{{list.SignOutputList}}" a:for-index="index" a:if="{{index<6}}">
+					<view class="text-24 padding-top-sm text-center {{index<list.ContinuousSign%7?'text-white':'text-black'}} {{list.ContinuousSign>0&&list.ContinuousSign%7==0?'text-white':'text-black'}}" >第{{index+1}}天</view>
+					<view class="text-center margin-top-xs">
+						<image class="icon-40 " src="../../../static/image/jinbi.webp" mode="widthFix"></image>
+					</view>
+					<view class="text-24 margin-top-xs text-center {{index<list.ContinuousSign%7?'text-white':'text-E2940A'}} {{list.ContinuousSign>0&&list.ContinuousSign%7==0?'text-white':'text-black'}}">+{{item.RewardAmount}}{{item.Type==0?'金币':'集分宝'}}</view>
+				</view>
+				<!-- 第七天 -->
+				<view class="margin-bottom flex justify-between {{list.ContinuousSign!=0&&list.ContinuousSign%7==0?'sihnIn-box-big':'sihnIn-box-n-big'}}"  a:for="{{list.SignOutputList}}" a:for-index="indexs" a:if="{{indexs==6}}">
+					<view class="">
+						<view class="text-24 padding-top-sm text-left {{list.ContinuousSign!=0&&list.ContinuousSign%7==0?'text-white':'text-black'}}" style="padding-left:38rpx;" >第{{indexs+1}}天</view>
+						<view class="text-24 margin-top-xs text-left {{list.ContinuousSign!=0&&list.ContinuousSign%7==0?'text-white':'text-E2940A'}}" style="padding-left: 30rpx;" >+1~10集分宝</view>
+					</view>
+					<view class="padding-right-sm">
+						<image class="icon-100 jinbi_" src="../../../static/image/jinbi2.webp" mode="widthFix"></image>
+					</view>
+					
+				</view>
+			</view>
+      <view class="qd" a:if="{{start==0}}" style="background-color:#ddd">
+				<view class="">
+					<text>签到加载中... </text>
+				</view>
+			</view>
+			<view class="qd" onTap="immediately" a:else>
+				<view class="" a:if="{{downNum>0&&list.Number-list.Signnumber>0}}">
+					<text class="margin-right-xs">0:{{downNum>10?downNum:'0'+downNum}} 可签到</text>
+					<text> 剩余{{list.Number-list.Signnumber}}次 </text>
+				</view>
+				<view class="" a:else >
+					立即签到 剩余{{list.Number-list.Signnumber}}次 
+				</view>
+			</view>
+		</view>
+		<view class="text-center margin-top-sm relative flex justify-center align-center" a:if="{{sdaliggList&&userInfo.NumberCompletions>=sdaliggList[0].NumberPopups&&sdaliggList[0].IsDone==false&&signBanShow}}">
+			<image style="width:94%" src="/static/image/xs.png" mode="widthFix"></image>
+			<view class="xianshiText flex align-center">
+				<image class="icon-30" src="/static/image/jfb.png" mode="widthFix"></image>
+				<text class="text-22 text-black">点击浏览广告，可随机获得</text>
+				<text class="text-22 text-F5741D" >1~{{sdaliggList[0].RewardAmount+1}}个集分宝</text>
+			</view>
+		</view>
+
+		<!-- 签到成功模态框 -->
+		<view class="modal" a:if="{{openModal}}"></view>
+		<view class="qd-modal2" a:if="{{openModal}}">
+			<view class="margin-top qd2">
+				<view class=" child margin-top" style="margin-top:4rem">
+          <view class="text-center text-white text-36">恭喜您获得</view>
+					<view class="text-center">
+						<text class="text-56 text-FFF000">{{list.SignOutputList[todayIndex].RewardAmount}}</text>
+							<text class="text-40 text-white" >{{list.SignOutputList[todayIndex].Type==0?'金币':'集分宝'}}</text>
+					</view>
+				</view>
+				
+				<view class="zdl" onTap="close">
+					
+				</view>
+				<view class="padding-sm" >
+					<ad a:if="{{verShow}}" class="ad"
+					unit-id ="ad_tiny_2021002151689730_202105212200011631"
+					/>
+				</view>
+			</view>
+			<view class="text-center close">
+				<image onTap="close" class="icon-70" src="/static/image/del.png" mode="widthFix"></image>
+			</view>
+		</view>
+
+			<modal ref="childMethods" type="1"></modal>  
+
+      <feeds 
+        spaceCode="ad_tiny_2021002151689730_202107052200014382"
+        onRenderSuccess="onRenderSuccess_last"
+        onRenderFail="onRenderFail_last"
+        onSaveRef="onSaveRef"
+      >

@@ -1,0 +1,19 @@
+.toptext{
+  padding-left: 90rpx
+}
+.text-FC4A10{
+  color:#FC4A10
+} 
+.ami{
+		animation: myfirst 1s linear 1s infinite alternate;
+	}
+	@keyframes myfirst
+	{
+		0% {
+			transform: translateY(0);
+		}
+		100% {transform: translateY(20px)}
+	}
+page {
+  background: #f7f7f7;
+}

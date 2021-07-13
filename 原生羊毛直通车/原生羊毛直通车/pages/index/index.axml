@@ -1,0 +1,103 @@
+<view class="">
+  <view class="flex justify-between top" id="myText">
+    <view class="flex align-center">
+        <image class="icon-120 radius-all" mode="scaleToFill" src="{{userInfo.data.HeadImg?userInfo.data.HeadImg:'/static/image/moren.png'}}"/>
+        <view class="margin-left">
+            <view class="text-black text-32 bold">
+             {{userInfo.data.NickName==''?'这家伙很懒,还没有昵称':userInfo.data.NickName}}
+            </view>
+            <view class="text-26 text-8B8B8B margin-top-sm">
+              ID：{{userInfo.data.AccountId}}
+            </view>
+        </view>
+    </view>
+     <!-- <view>
+        <image class="icon-100" mode="scaleToFill" src="/static/image/nkhy.webp"/>
+    </view> -->
+</view>
+
+<view class="flex justify-center">
+    <swiper  a:if="{{userInfo.data.Ispublic==0}}" class="screen-swiper square-dot"   indicator-dots="{{true}}" circular="{{true}}"
+                    autoplay="{{true}}" interval="5000" duration="500">
+                      <swiper-item a:for="{{swiper}}" a:if="{{item.Title=='会员'}}" >
+                        <view class="flex justify-center" onTap="swiperJump" data-JumpType="{{item.JumpType}}" data-item="{{item}}"  >
+                          <image src="{{item.Img}}" mode="widthFix" style="width: 95%" ></image>
+                        </view>
+                      </swiper-item>
+  </swiper>
+   <swiper a:else class="screen-swiper square-dot"   indicator-dots="{{true}}" circular="{{true}}"
+                    autoplay="{{true}}" interval="5000" duration="500">
+                      <swiper-item a:for="{{swiper}}"  a:if="{{item.Title=='非会员'}}">
+                        <view class="flex justify-center" onTap="swiperJump" data-JumpType="{{item.JumpType}}" data-item="{{item}}"  >
+                          <image src="{{item.Img}}" mode="widthFix" style="width: 95%" ></image>
+                        </view>
+                      </swiper-item>
+  </swiper>
+</view>
+
+
+
+  <view class="main padding-lr-sm padding-bottom-sm">
+      <view class="text-32 text-black bold flex align-center">
+          <image class="icon-40" mode="scaleToFill" src="/static/image/rwzx.webp"/>
+          <text class="margin-left-xs">任务中心</text>
+      </view> 
+       <view class="margin-top-xs" a:if="{{userInfo.data.Ispublic==1}}">
+        <text class="text-24 text-666666">您还不是VIP，成为VIP每日额外可赚</text>
+        <text class="text-24 text-FD3A3A" onTap="jump_kthy">0.88元,点击前往》</text>
+      </view>
+      <view class="margin-top-xs" a:else>
+        <text class="text-24 text-666666">以下小程序中各完成2个任务，享受</text>
+        <text class="text-24 text-FD3A3A">0.88元</text>
+        <text class="text-24 text-666666">额外现金奖励</text>
+      </view>
+      <view class="flex justify-between align-center margin-top-xl margin-bottom padding-right-sm" a:if="{{userInfo.data.Ispublic==0}}">
+          <text class="text-32 bold text-black">任务进度</text>
+          <view class="flex align-center">
+              <text class="text-FF2A55 text-24">{{userInfo.count}}/{{list.length}}</text>
+              <view class="margin-left-sm jd">
+                  <text class="child" style="width:{{userInfo.count/list.length*100}}%"></text>
+              </view>
+              <image class="icon-70 margin-left-sm" onTap="click_hb" mode="scaleToFill" src="/static/image/hb.gif"/>
+          </view>
+      </view>
+      <view class="main_rw padding-lr-sm margin-top" >
+          <view class="flex justify-between align-center padding-tb relative" a:for="{{list}}" onTap="tabNav" data-index="{{index}}">
+                <view class="flex">
+                    <image class="icon-100 radius-20" mode="scaleToFill" src="{{item.Img}}"/>
+                    <view class="margin-left-sm">
+                       <view class="flex align-center">
+                          <text class="text-28 text-black bold">{{item.Title}}</text>
+                           <text class="text-28 text-black bold margin-left-xs" a:if="{{userInfo.data.Ispublic==0&&item.RwSuccess<=userInfo.data.Number}}">{{item.RwSuccess}}/{{userInfo.data.Number}}</text>
+                            <text class="text-28 text-black bold margin-left-xs" a:if="{{userInfo.data.Ispublic==0&item.RwSuccess>userInfo.data.Number}}">{{userInfo.data.Number}}/{{userInfo.data.Number}}</text>
+                        <!-- <image class="fvip margin-left-xs" mode="scaleToFill" src="https://api.shupaiyun.com/api/v1/File/Get?openId={{userInfo.data.Img}}"/> -->
+                       </view>
+                        <view class="text-24 text-999999 margin-top-5" a:if="{{userInfo.data.Ispublic==0}}">
+                         前往小程序,享受额外奖励
+                       </view>
+                       <view class="text-24 text-999999 margin-top-5" a:else>
+                         当前非VIP，成为VIP享受额外奖励
+                       </view>
+                    </view>
+                </view>
+                <!-- <text a:if="{{userInfo.data.Ispublic==0}}" class="{{index%4==0?'rw_button':''}} {{index%4==1?'rw_button2':''}} {{index%4==2?'rw_button3':''}} {{index%4==3?'rw_button4':''}}" style="font-size:24rpx">{{item.RwSuccess}}/{{userInfo.data.Number}}</text> -->
+                <text a:if="{{userInfo.data.Ispublic==0}}"  class="{{item.RwSuccess>=userInfo.data.Number?'rw_button4':'rw_button3'}}" style="font-size:24rpx">{{item.RwSuccess>=userInfo.data.Number?'已完成':'未完成'}}</text>
+                <text a:else  class="{{index%4==0?'rw_button':''}} {{index%4==1?'rw_button2':''}} {{index%4==2?'rw_button3':''}} {{index%4==3?'rw_button4':''}}" style="font-size:24rpx">{{item.ButtonTitle}}</text>
+                
+                <text class="solid-b" a:if="{{index<list.length-1}}"></text>
+          </view>
+      </view>
+  </view>
+</view>
+
+<!-- <view>
+    	<view class="modal"></view>
+      <view class="modal_main">
+          <view class="text-EED5C8 text-38 bold text-center"> 
+              尊敬的会员
+          </view>
+          <view class="modal_child">
+            
+          </view>
+      </view>
+</view> -->

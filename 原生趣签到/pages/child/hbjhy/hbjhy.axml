@@ -1,0 +1,12 @@
+<view class="head">
+  
+</view>
+<view>
+  <image mode="widthFix" style="width:100%" src="/static/image/zs.webp"/>
+</view>
+
+
+ <modal ref="childMethods" type="4"></modal>
+
+
+

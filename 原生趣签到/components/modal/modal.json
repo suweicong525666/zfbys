@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+       "subscribe-msg": "plugin://subscribeMsg/subscribe-msg",
+    "ad-task": "plugin://myPlugin/ad-task",
+    "modal":"/components/modal/modal",
+    "feeds": "plugin://xlightPlugin/feeds"
+  }
+}

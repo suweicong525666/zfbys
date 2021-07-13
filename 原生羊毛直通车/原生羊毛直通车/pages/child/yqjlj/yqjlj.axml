@@ -1,0 +1,48 @@
+<view class="flex justify-between padding-sm">
+  <view class="top-l">
+      <view class="text-24 text-black">
+        今日邀请奖励
+      </view>
+      <view class="text-02AE9A margin-top-sm">
+        {{top.yaoqing}}
+      </view>
+  </view>
+  <view class="top-r">
+     <view class="text-24 text-black">
+        昨日佣金（每日结算）
+      </view>
+      <view class="text-C87F00 margin-top-sm">
+       {{top.yongjin}}
+      </view>
+  </view>
+</view>
+
+<view class="main margin-lr-sm margin-top bg-white radius-20 padding-lr-sm">
+    <view class="padding-tb-sm solid-bottom flex align-center">
+      <image class="icon-35" mode="scaleToFill" src="/static/image/mx.webp"/>
+      <text class="text-black text-28 margin-left-xs">奖励明细</text>
+      <text class="text-24 text-999999">（留存七日）</text>
+    </view>
+    <!-- 接口列表 -->
+    <view class="padding-tb-sm solid-bottom flex justify-between align-center" a:for="{{list}}">
+        <view>
+            <view class="text-black text-26">
+                {{item.Detail}}
+            </view>
+            <view class="text-999999 text-24 margin-top-xs">
+               {{item.CreateTime}}
+            </view>
+        </view>
+        <view class="text-F97822 bold">
+          +{{item.Commission}}
+        </view>
+    </view>
+     <view class="padding-bottom" a:if="{{list.length==0}}">
+        <view class="flex justify-center">
+           <image style="width:370rpx;height:370rpx;" mode="scaleToFill" src="/static/image/wjl.webp"/>
+        </view>
+       <view class="text-center text-24 text-999999">
+         暂无记录
+       </view>
+    </view>
+</view>

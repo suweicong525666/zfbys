@@ -1,0 +1,10 @@
+{
+   "defaultTitle": "",
+  "transparentTitle": "always",
+  "titlePenetrate": "YES",
+  "allowsBounceVertical": "NO",
+   "usingComponents":{
+      "feeds": "plugin://xlightPlugin/feeds",
+      "modal":"/components/modal/modal"
+  }
+}

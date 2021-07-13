@@ -1,0 +1,84 @@
+<view class="text-center relative">
+    <image mode="widthFix" style="width:100%" src="/static/image/bj123.png"/>
+    <view class="yimit">
+      <view class="tims">
+        <view class="chang"></view>
+        <view class="jki">
+        <view class="beiy"a:for="{{list}}">
+          <view class="ba" >
+            <image mode="widthFix"  src="/static/image/ba.png" a:if="{{item.IsSuccess}}"/>
+            <image mode="widthFix"  src="/static/image/jiu.png" a:else/>
+            <text style="position:absolute;"a:if="{{!item.IsSuccess}}">{{index+1}}</text>
+          </view>
+          <view class="time">
+            {{item.Time}}
+          </view>          
+        </view>
+        </view>
+      </view>
+      <view class="duod">
+        每个时间段都可以完成一次哦，福利多多，记得参与~
+      </view>
+      <view class="xianshi">
+        限时{{zongtims}}寻找最多{{jl}}个金币
+      </view>
+      <view class="gund">
+        <view class="xsjb">
+          <view></view>
+          <view class="yiti">
+            <image mode="widthFix"  src="/static/image/xsjb.png"/>
+            <view style="width:300rpx" a:if="{{!onshow}}"></view>
+				<swiper indicator-dots="{{false}}" autoplay="{{true}}" circular="{{true}}"vertical="{{true}}" interval="3000" style="width:300rpx;height:50rpx"
+				 disable-touch="false" a:if="{{onshow}}" >
+					<swiper-item  >
+            <view style="width:300rpx;height:100rpx;text-align:right">
+            <text >已获得{{jl/2}}金币</text>            
+            </view>
+					</swiper-item>
+					<swiper-item  >
+            <view style="width:300rpx;height:100rpx;text-align:right">
+            <text > 继续浏览获得全部金币</text>          
+            </view>
+					</swiper-item>           
+				</swiper>            
+
+          </view>
+          <view class="yiti">
+            <image mode="widthFix"  src="/static/image/xsjb.png"/>
+            <view style="width:300rpx" a:if="{{a!=zongtims}}"></view>
+				<swiper indicator-dots="{{false}}" autoplay="{{true}}" circular="{{true}}"vertical="{{true}}" interval="3000" style="width:300rpx;height:50rpx" a:if="{{a==zongtims}}"
+				 disable-touch="false" >
+					<swiper-item  >
+            <view style="width:300rpx;height:100rpx;text-align:right" >
+            <text >已获得{{jl}}金币</text>            
+            </view>
+					</swiper-item>
+					<swiper-item  >
+            <view style="width:300rpx;height:100rpx;text-align:right" >
+            <text >返回前一页面领取金币奖励</text>          
+            </view>
+					</swiper-item>           
+				</swiper>
+          </view>          
+        </view>
+        <view class="yyy" style="{{width:cad+'%'}}">
+          
+        </view>        
+      </view>
+    </view>
+</view>
+<!-- <view class="padding-left text-32  margin-top-xs flex align-center">
+<text>{{a}}</text>
+      
+        <text class="text-black bold">浏览点击两个商品得</text>
+        <text class="text-FC4A10 bold">0.01-0.88红包</text>
+        <image class="icon-80 margin-left-sm ami" mode="scaleToFill" src="/static/image/shou.webp"/>
+        
+    </view> -->
+
+<feeds  
+        spaceCode="ad_tiny_2021002144611173_202106152200013410"
+        onRenderSuccess="onRenderSuccess_last"
+        onRenderFail="onRenderFail_last"
+        onSaveRef="onSaveRef"
+      >

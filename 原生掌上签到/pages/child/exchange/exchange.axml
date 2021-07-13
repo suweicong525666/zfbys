@@ -1,0 +1,403 @@
+	<view >
+
+    <view class="head">
+			<image src="../../../static/image/rwbj.webp" mode="widthFix" style="width: 100%;"></image>
+		</view>
+    <view class="bg-white radius-20 margin padding relative" style="margin-top:-2.2rem">
+        <view class="flex justify-between">
+            <view class="text-black text-34 bold">
+              金币兑换
+            </view>
+            <view class="text-24 text-EE5C5C flex align-center" onTap="jump_exchangeDetail">
+                <image style="margin-right:5rpx" class="icon-25" mode="scaleToFill" src="/static/image/gt.png"/>
+                <text>兑换记录</text>
+            </view>
+        </view>
+        <view class="margin-top-xs flex align-center">
+          <text class="text-24 text-666666">我的金币：</text>
+          <text class="text-24 text-EE5C5C">{{userInfo.Coin}}</text>
+          <image class="icon-40 margin-left-xs" mode="scaleToFill" src="/static/image/jinbi.png"/>
+        </view>
+        <view class="flex justify-between bg-FFF0EF padding-sm radius-20 margin-top-sm margin-bottom-sm">
+            <view class="text-black text-24">
+                <text a:if="{{hbList[0].Time>0}}">{{hbList[0].ActivityTime}}开始</text>
+                 <text a:else>正在兑换</text>
+            </view>
+            <view class="text-EE5C5C text-24 flex" a:if="{{cdShow&&hbList[0].Time>0}}">
+                 <view>
+                   <i-count-down target='{{targetTime}}' countdown-class='big' clear-timer='{{clearTimer}}' onCallback='myLinsterner' ref='saveChildRef6'> 
+                 </view>
+                 <text> 后开始</text>
+            </view>
+        </view>
+        <view class="grid col-3 ">
+            <view a:for="{{hbList}}" a:for-index="index" class="text-center margin-top-sm relative" onTap="choujiang" data-SoldOut="{{item.SoldOut}}" data-id="{{item.Id}}" data-quota="{{item.Quota}}">
+                <image class="jinbi" mode="widthFix" src="{{item.Img}}"/>
+                <view class="hbMain">
+                    <view class="text-22 padding-top-xs">
+                        {{item.Description}}
+                    </view>
+                    <view class="text-FFEBAC text-24" style="margin-top:62rpx">
+                        {{item.Title}}
+                    </view>
+                    <view class="text-white padding-top-xs">
+                      <text class="text-34">￥</text>
+                      <text class="text-56">{{item.Quota}}</text>
+                    </view>
+                     <view class="text-white text-22 hb_bt">
+                      <text class="" a:if="{{item.Time>0}}">即将开始</text>
+                      <text a:if="{{item.Time<0&&item.IsEnd==false}}">进行中</text>
+                      <text a:if="{{item.Time<0&&item.IsEnd}}">已结束</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+		<!-- 做任务区域 -->
+		<view class="bg-white margin-sm padding-top radius-20">
+        <view class="flex justify-between padding-lr ">
+			<view class="text-black bold text-32 padding-left-sm">
+				做任务赚更多
+			</view>
+			<view class="" onTap="jump_allTasks">
+				<text class="text-24 text-999999">查看全部</text>
+				<text class="lg text-999999 cuIcon-right margin-left-xs"></text>
+			</view>
+		</view>
+	
+		<view class="">
+			<view class="padding">
+      <view class="relative flex justify-between padding margin-bottom-sm radius-20 {{index%3==0?'bg-FFF3E5':''}}{{index%3==1?'bg-E9F7FF':''}}{{index%3==2?'bg-FDE9FF':''}}"  a:for="{{ymrwList}}" a:for-item="item" data-JumpType="{{item.JumpType}}" data-item="{{item}}"  onTap="tabNav">
+					<view class="flex">
+						<image class="icon-80" src="{{item.Img}}" mode="widthFix"></image>
+						<view class="margin-left-sm" style="height:80rpx">
+							<view class="text-28 bold text-F5741D flex align-center" style="height:50%;padding-top:4rpx">
+								<text class="text-overflow" style="max-width: 200rpx;">{{item.Title}}</text>
+								<view class="flex align-center margin-left-sm">
+									<image a:if="item.Type==2" class="icon-34" src="/static/image/jfb.png" mode="widthFix"></image>
+									<image a:else class="icon-34" src="/static/image/jb.png" mode="widthFix"></image>
+									<text class="text-F5741D text-24 bold margin-left-xs padding-top-xss">+{{item.RewardAmount}}{{item.TypeString}}</text>
+								</view>
+							</view>
+							<view class="text-999999 text-24 flex align-end sub" style="height:50%">
+								{{item.Subtitle}}
+							</view>
+						</view>
+					</view>
+					<view class="relative">
+						<view class="margin-top-xs" >
+							<text class="index-button {{index%3==0?'bg-FFF3E52':''}} {{index%3==1?'bg-E9F7FF2':''}} {{index%3==2?'bg-FDE9FF2':''}}">{{item.ButtonTitle?item.ButtonTitle:'前往领取'}}</text>
+						</view>
+					<view a:if="{{item.IsDone}}" style="position: absolute;top:20rpx;left:-20rpx;transform: translate(-100%,-50%);transform: scale(1.0,1.7);opacity: 0;">
+                <life-follow  sceneId="{{item.Component}}"   a:if="{{show}}" checkFollow="{{checkFollow}}" onCheckFollow="checkFollowCb" onClose="closeCb"></life-follow>
+							</view>
+					</view>
+					<image a:if="{{item.IsDone}}" style="position: absolute;right:0rpx;top:0rpx" class="icon-85" src="/static/image/yiwc.png" mode="widthFix"></image>
+				</view>
+				<view class="relative flex justify-between padding margin-bottom-sm radius-20 {{index%3==0?'bg-FFF3E5':''}}{{index%3==1?'bg-E9F7FF':''}}{{index%3==2?'bg-FDE9FF':''}}"  a:for="{{bottomLists}}" a:for-item="item" data-JumpType="{{item.JumpType}}" data-item="{{item}}"  onTap="tabNav">
+					<view class="flex">
+						<image class="icon-80" src="{{item.Img}}" mode="widthFix"></image>
+						<view class="margin-left-sm" style="height:80rpx">
+							<view class="text-28 bold text-F5741D flex align-center" style="height:50%;padding-top:4rpx">
+								<text class="text-overflow" style="max-width: 200rpx;">{{item.Title}}</text>
+								<view class="flex align-center margin-left-sm">
+									<image a:if="item.Type==2" class="icon-34" src="/static/image/jfb.png" mode="widthFix"></image>
+									<image a:else class="icon-34" src="/static/image/jb.png" mode="widthFix"></image>
+									<text class="text-F5741D text-24 bold margin-left-xs padding-top-xss">+{{item.RewardAmount}}{{item.TypeString}}</text>
+								</view>
+							</view>
+							<view class="text-999999 text-24 flex align-end sub" style="height:50%">
+								{{item.Subtitle}}
+							</view>
+						</view>
+					</view>
+					<view class="relative">
+						<view class="margin-top-xs" >
+							<text class="index-button {{index%3==0?'bg-FFF3E52':''}} {{index%3==1?'bg-E9F7FF2':''}} {{index%3==2?'bg-FDE9FF2':''}}">{{item.ButtonTitle?item.ButtonTitle:'前往领取'}}</text>
+						</view>
+					<view a:if="{{item.IsDone}}" style="position: absolute;top:20rpx;left:-20rpx;transform: translate(-100%,-50%);transform: scale(1.0,1.7);opacity: 0;">
+                <life-follow  sceneId="{{item.Component}}"   a:if="{{show}}" checkFollow="{{checkFollow}}" onCheckFollow="checkFollowCb" onClose="closeCb"></life-follow>
+							</view>
+					</view>
+					<image a:if="{{item.IsDone}}" style="position: absolute;right:0rpx;top:0rpx" class="icon-85" src="/static/image/yiwc.png" mode="widthFix"></image>
+				</view>
+			</view>
+		</view>
+    </view>
+		
+	<!-- 	恭喜您获得额外福利，点击下方广告浏览，直接领取0.01元模态框弹窗 -->
+		<view class="" a:if="{{modalShow&&modalname==''}}" >
+			<view class="modal"></view>
+		<view class="modal-main">
+				<view class="relative text-center">
+					<image src="/static/image/jinbi3.webp" style="width:90%" mode="widthFix"></image>
+					<view class="text-26 text-666666 text-center" style="position:absolute;width:100%;top:380rpx">
+						
+						<view class="bold margin-top main_huode" style="">
+							<text style="font-size:28rpx">+</text><text style="font-size:70rpx">{{RewardAmount}}</text>
+              <text style="font-size:28rpx" a:if="{{modalType==1}}">金币</text>
+                <text style="font-size:28rpx" a:if="{{modalType==2}}">集分宝</text>
+                <text style="font-size:28rpx" a:if="{{modalType==3}}">现金</text>
+						</view>
+            <view class="text-999999" a:if="{{rw_alBanShow}}">
+                下方有福利，点击查看
+            </view>
+             <view class="text-999999" a:else>
+                恭喜获得
+            </view>
+						<view class="margin-top-xl padding-lr relative"  >
+							<ad a:if="{{verShow}}" class="modal-ad1"
+							unit-id ="ad_tiny_2021002145679946_202105212200011733"
+               onLoad ="onRenderSuccess_rwwc"
+							/>
+						</view>
+					</view>
+					<view class="margin-top">
+						<image onTap="closeModal" class="icon-70" src="/static/image/del.png" mode="widthFix"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+
+    		<!-- 	特殊广告模态框弹窗 -->
+			<view class="" a:if="{{modalname=='ts'}}">
+				<view class="modal"></view>
+				<view class="modal-main">
+					<view class="relative text-center">
+						<image src="/static/image/jinbi3.webp" style="width:90%" mode="widthFix"></image>
+						<view class="text-26 text-666666 text-center" style="position:absolute;width:100%;top:380rpx">
+						
+							<view class="bold margin-top-xs" style="color:#F94982;font-size:28rpx">
+								<text style="font-size:28rpx">+</text><text style="font-size:70rpx">{{RewardAmount}}</text><text style="font-size:28rpx">{{modalType==1?'金币':'集分宝'}}</text>
+							</view>
+             
+							<view style="margin-top:65rpx" a:if="{{tsrw_alBanShow}}">
+								恭喜您获得额外福利，点击下方广告浏览，直接领取0.01元
+							</view>
+               <view style="margin-top:65rpx" a:else>
+								恭喜获得
+							</view>
+              	<view class="dasheds"></view>
+              	<view    class="margin-top-xl padding-lr relative"  onTap="jump_bannerSecond" data-num="{{tsrwggList[0].NumberPopups}}" data-modalInfo="{{tsrwggList[0].IsDone}}" data-item="{{tsrwggList[0]}}">
+                  <ad a:if="{{verShow}}" class="modal-ad1"
+                  unit-id ="{{tsrwggList[0].APPID}}"
+                  onLoad ="onRenderSuccess_tswc"
+                  />
+							</view>
+						</view>
+						<view class="liji_button" onTap="closeModal">
+            
+          </view>
+						<view class="margin-top">
+							<image onTap="closeModal" class="icon-70" src="/static/image/del.png" mode="widthFix"></image>
+						</view>
+					</view>
+				</view>
+			</view>
+
+      
+
+<!-- <modal onHidetest= "hidetest" modalname="life" lifeTittle="{{lifeTittle}}" lifeSutittle="{{lifeSutittle}}" a:if="{{modalname=='life'}}"></modal> -->
+<!-- 关注生活模态框 -->
+<view class="" a:if="{{modalname=='life'}}" >
+				<view class="modal"></view>
+				<view class="modal-main">
+					<view class="relative text-center">
+						<image src="/static/image/hb.png" mode="widthFix"></image>
+						<view class="guanzhuTittle">
+							<view class="">
+								{{lifeTittle}}
+							</view>
+							<view class="margin-top" style="font-size: 30rpx;">
+								{{lifeSutittle}}
+							</view>
+						</view>
+
+						<view class="guanzhuTextButton">
+							 <life-follow  sceneId="{{sceneId}}"   a:if="{{show}}" checkFollow="{{checkFollow}}" onCheckFollow="checkFollowCb" onClose="closeCb"></life-follow>
+						</view>
+						<image class="guanzhuImg" src="{{lifeImg}}" mode="widthFix"></image>
+						<view class="margin-top">
+							<image onTap="closeModal" class="icon-70" src="/static/image/del.png" mode="widthFix"></image>
+						</view>
+					</view>
+				</view>
+			</view>
+     
+      <!-- 	添加桌面 -->
+				<view class="" a:if="{{modalname=='zhuomian'}}" >
+					<view class="modal" onTap="closeModal"></view>
+					<view class="zmMain">
+						<view class="flex justify-end" style="padding-right: 1.2rem;">
+                	<image class="hand icon-40" src="/static/image/shoushi.png" mode="widthFix"></image>
+						</view>
+             <view class="text-right text-32 text-white margin-top-sm" style="padding-right:0.5rem">
+                  添加到我的桌面
+              </view>
+						<view class="zhuomian_child">
+                <view class="text-32 text-white flex align-center">
+                    <text>1.点击右上角</text>
+                    <image class="icon-62" mode="scaleToFill" src="/static/image/dian.png"/>
+                    <text>选择添加到桌面</text>
+                    <image class="icon-62" mode="scaleToFill" src="/static/image/shouji.png"/>
+						    </view>
+                <view class="text-32 text-white flex align-center margin-top-xl">
+                    <text>2.点击</text>
+                    <image class="icon-62" mode="scaleToFill" src="/static/image/tuichu.png"/>
+                    <text>退出[掌上签到]</text>
+						    </view>
+                <view class="text-32 text-white flex align-center margin-top">
+                    <text>3.从手机的桌面打开</text>
+                    <view class="margin-left-xs">
+                       <view class="text-center">
+                           <image class="icon-130" mode="scaleToFill" src="/static/image/logo1.png"/>
+                       </view>
+                       <view class="text-center">
+                             <text>[掌上签到]</text>
+                       </view>
+                    </view>
+						    </view>
+                 <view class="text-32 text-white flex align-center margin-top-xl padding-left-xl">
+                    <text>领取{{RewardAmount}}</text>
+                    <image class="icon-40" mode="scaleToFill" src="/static/image/jb2.png"/>
+                    <text>奖励</text>
+						    </view>
+            </view>
+					</view>
+				</view>
+                     <!-- 	添加支付宝首页 -->
+    <view class="" a:if="{{modalname=='zfbsy'}}" >
+					<view class="modal" onTap="closeModal"></view>
+					<view class="zmMain">
+						<view class="flex justify-end" style="padding-right: 1.2rem;">
+                	<image class="hand icon-40" src="/static/image/shoushi.png" mode="widthFix"></image>
+						</view>
+             <view class="text-right text-32 text-white margin-top-sm" style="padding-right:0.5rem">
+                  添加到支付宝首页
+              </view>
+						<view class="zhuomian_child">
+                <view class="text-32 text-white flex align-center">
+                    <text>1.点击右上角</text>
+                    <image class="icon-62" mode="scaleToFill" src="/static/image/dian.png"/>
+                    <text>选择添加到支付宝首页</text>
+						    </view>
+                <view class="text-32 text-white flex align-center margin-top-xl">
+                    <text>2.点击</text>
+                    <image class="icon-62" mode="scaleToFill" src="/static/image/tuichu.png"/>
+                    <text>退出[掌上签到]</text>
+						    </view>
+                <view class="text-32 text-white flex align-center margin-top">
+                    <text>3.从支付宝首页打开</text>
+                    <view class="margin-left-xs">
+                       <view class="text-center">
+                           <image class="icon-130" mode="scaleToFill" src="/static/image/logo1.png"/>
+                       </view>
+                       <view class="text-center">
+                             <text>[掌上签到]</text>
+                       </view>
+                    </view>
+						    </view>
+                 <view class="text-32 text-white flex align-center margin-top-xl padding-left-xl">
+                    <text>领取{{RewardAmount}}个</text>
+                    <image class="icon-40" mode="scaleToFill" src="/static/image/jfb.png"/>
+						    </view>
+            </view>
+					</view>
+				</view>   
+                 <!-- 淘宝 -->
+        <view a:if="{{modalname=='taobao'}}">
+            	<view class="modal" onTap="closeModal"></view>
+              <view class="taobao">
+                    <image mode="scaleToFill" class="taobao_icon" src="/static/image/taobao.webp"/>
+                    <view class="text-30 text-black bold text-center" style="margin-top:1rem">
+                        手机淘宝
+                    </view>
+                    <view class="margin-top-xl taobao_text">
+                      <text>浏览不足{{BrowseTime}}秒，或您未安装</text>
+                      <text style="color:#FF9516">手机淘宝</text>
+                      <text>安装</text>
+                      <text style="color:#FF9516">手机淘宝</text>
+                      <text>后才能做这个任务</text>
+                    </view>
+                    <view class="taobao_wzdl" onTap="closeModal">
+                      
+                    </view>
+              </view>
+        </view>
+                   <subscribe-msg />  
+
+                                                  <!-- 点击普通任务弹出灯火广告 -->
+ <view class="{{modalname=='rwdh'?'':'modal-main2'}}">
+            	<view class="modal" onTap="closeModal"></view>       
+              <view class="rw_dh">
+                <view>
+                   <view class="flex justify-center">
+                    <image mode="widthFix" style="width:96%" src="/static/image/rw_dh.webp"/>
+                    
+                 </view>
+                 <view class="dh_child" data-num="{{rwdh[0].NumberPopups}}" data-modalInfo="{{rwdh[0].IsDone}}" data-item="{{rwdh[0]}}"  onTap="jump_banner">
+                    
+                        <ad a:if="{{rwdh[0].APPID}}"  class=""
+                    unit-id ="{{rwdh[0].APPID}}"
+                      
+                    />
+                    <view class="flex justify-center padding-tb">
+                        <text class="text-white">点击上方广告浏览{{rwdh[0].BrowseTime}}秒，</text>
+                        <text style="color:#FFE779">领取奖励》</text>
+                    </view>
+                 </view>
+                 	<view class="margin-top dh-close">
+							            <image onTap="closeModal" class="icon-70" src="/static/image/del.png" mode="widthFix"></image>
+                  </view>
+                </view>
+              </view>   
+</view>
+	<!-- 	普通任务完成后的特殊弹窗 -->
+			<view class="" a:if="{{modalname=='rwts'}}">
+				<view class="modal"></view>
+				<view class="modal-main">
+					<view class="relative text-center">
+						<image src="/static/image/jinbi3.webp" style="width:85%" mode="widthFix"></image>
+						<view class="text-26 text-666666 text-center relative" style="position:absolute;width:100%;top:370rpx">
+							<view class="bold margin-top-xs" style="color:#F94982;font-size:28rpx">
+								<text style="font-size:28rpx">+</text><text style="font-size:70rpx">{{RewardAmount}}</text>
+                <text style="font-size:28rpx" a:if="{{modalType==1}}">金币</text>
+                <text style="font-size:28rpx" a:if="{{modalType==2}}">集分宝</text>
+                <text style="font-size:28rpx" a:if="{{modalType==3}}">现金</text>
+							</view>
+							<view class="flex justify-center">
+                  	<view class="margin-top-sm" style="width: 4rem;text-align:center;line-height: 0.4rem;">
+								      恭喜您获得额外福利，点击下方广告浏览，直接领取0.01元
+							      </view>
+              </view>
+              	<view   class="margin-top-lg padding-lr relative"  data-num="{{rwTs.list[0].NumberPopups}}" data-modalInfo="{{rwTs.list[0].IsDone}}" data-item="{{rwTs.list[0]}}"  onTap="jump_banner" a:if="{{ptrwwcShow&&verShow}}">
+                  <ad   class="modal-ad1 margin-top-xl"
+                  unit-id ="{{rwTs.list[0].AliId}}"
+                  onLoad ="onRenderSuccess_ptrwwc"
+                  />
+							</view>
+              <view a:else>
+                <view  data-JumpType="{{rwTs.ym[0].JumpType}}" data-item="{{rwTs.ym[0]}}"  onTap="tabNav" a:if="{{rwTs.ym.length>0}}">
+                      <image style="height:130rpx;" class="modal-ad1 margin-top-xl radius" mode="scaleToFill" src="{{rwTs.list[0].Img}}"/>
+                </view>
+                 <view  data-JumpType="{{rwTs.list[0].JumpType}}" data-item="{{rwTs.list[0]}}"  onTap="tabNav" a:else>
+                      <image style="height:130rpx;" class="modal-ad1 margin-top-xl radius" mode="scaleToFill" src="{{rwTs.list[0].Img}}"/>
+                </view>
+              </view>
+               <image class="rwts_hand heart" mode="scaleToFill" src="/static/image/hand.png"/>
+						</view>
+						 
+						<view class="margin-top">
+							<image onTap="closeModal" class="icon-70" src="/static/image/del.png" mode="widthFix"></image>
+						</view>
+					</view>
+				</view>
+			</view> 
+
+         <feeds 
+        spaceCode="ad_tiny_2021002145679946_202106152200013401"
+        onRenderSuccess="onRenderSuccess_last"
+        onRenderFail="onRenderFail_last"
+        onSaveRef="onSaveRef"
+      > 

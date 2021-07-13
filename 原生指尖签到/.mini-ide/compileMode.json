@@ -1,0 +1,13 @@
+{
+  "modes": [
+    {
+      "title": "ceshi",
+      "page": "pages/index/index",
+      "pageQuery": "channel=alive_tb"
+    },
+    {
+      "title": "签到页",
+      "page": "pages/child/sign/sign"
+    }
+  ]
+}

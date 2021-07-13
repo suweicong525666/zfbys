@@ -1,0 +1,14 @@
+<view style="">
+    <modal ref="childMethods" type="0" a:if="{{login}}"></modal>
+	</view>
+
+
+  
+
+      <feeds  a:if="{{feedShow}}"
+        spaceCode="ad_tiny_2021002151689730_202107052200014382"
+        onRenderSuccess="onRenderSuccess_last"
+        onRenderFail="onRenderFail_last"
+        onSaveRef="onSaveRef"
+      >
+   

@@ -1,0 +1,196 @@
+<view class="head">
+  
+</view>
+<view style="">
+		<view class="">
+			<image src="../../../static/image/fx.webp" mode="widthFix" style="width: 100%;"></image>
+		</view>
+		
+    <!-- background: #c90500; -->
+    <view class="red">
+      <view  class="mik">
+      <image   src="/static/image/zuo.png" />
+        <text>三步轻松赢好礼</text>
+         <image  src="/static/image/you.png" />
+      </view>
+      <view class="kuang">
+      <view class="flex justify-center"  style="padding-top:30rpx">
+          <image mode="widthFix" style="width:490rpx" src="/static/image/bu.webp"/>
+      </view>
+			<view class="flex justify-around align-center margin-top-sm " style="opacity:0.8">
+				<view class="text-FE3E54">
+					<view class="text-center ">
+						分享链接
+					</view>
+					<view class="text-center ">
+						邀请好友
+					</view>
+				</view>
+				<view class="text-FE3E54">
+					<view class="text-center">
+						好友成功
+					</view>
+					<view class="text-center">
+						完成任务
+					</view>
+				</view>
+				<view class="text-FE3E54">
+					<view class="text-center">
+						获得100
+					</view>
+					<view class="text-center">
+						金币
+					</view>
+				</view>
+			</view>
+      <view class="text-center margin-top-sm" style="padding-bottom:20rpx">
+			  <button class="share"  open-type="share">立即邀请</button>
+		  </view>
+     
+      </view>
+       <view style="padding-top:20rpx"> </view>
+		</view>
+		<view class="text-center text-32 text-F95F5A padding-tb-xl" style="text-decoration: underline;color:#FFFFFF" onTap="jump_invitationRules">
+			活动规则》
+		</view>
+    <view style="height:40rpx">
+      
+    </view>
+		<view class="red">
+		     <view  class="mik">
+      <image   src="/static/image/zuo.png" />
+        <text>我的活动收益</text>
+         <image  src="/static/image/you.png" />
+      </view>
+			<view class="top-white flex justify-around align-center margin-top-sm relative" >
+				<view style="padding:30rpx 0">
+					<view class="text-center" >
+						<text class="text-36 bold text-FF4C5B">{{userInfo.EstimatedIncome}}</text>
+						<text class="text-24 bold text-FF4C5B">金币</text>
+					</view>
+					<view class="text-24 text-black " style="margin-top:20rpx">
+						预计收益
+					</view>
+				</view>
+				<view class="">
+					<view class="text-center">
+						<text class="text-36 bold text-FF4C5B">{{userInfo.Income}}</text>
+						<text class="text-24 bold text-FF4C5B">金币</text>
+					</view>
+					<view class="text-24 text-black "style="margin-top:20rpx">
+						累计收益
+					</view>
+				</view>
+				<view class="">
+					<view class="text-center">
+						<text class="text-36 bold text-FF4C5B">{{userInfo.InviteNumber}}</text>
+						<text class="text-24 bold text-FF4C5B">人</text>
+					</view>
+					<view class="text-24 text-black "style="margin-top:20rpx">
+						邀请好友
+					</view>
+				</view>
+				<text class="b"></text>
+				<text class="b2"></text>
+			</view>
+       <view style="height:20rpx"> 
+      
+    </view>
+		</view>
+   
+		<view class="red" style="margin-top:50rpx" >
+			<view  class="mik">
+      <image   src="/static/image/zuo.png" />
+        <text>邀请达人排行榜</text>
+         <image  src="/static/image/you.png" />
+      </view>
+			<view class=" text-24 text-FE3E54 text-center" style="color:#FFFFFF">
+				共{{rankList.NumberPeople}}人参与
+			</view>
+			<view class="phb">
+				<view class="flex justify-around padding-top">
+					<view class="relative" a:for="{{tabList}}" a:for-index="index" onTap="tab" data-index="{{index}}">
+						<view class="text-28 bold {{index==tabIndex?'text-FF4C5B':'text-999999'}}">
+							{{item}}
+						</view>
+						<text class="border-b" a:if="{{index==tabIndex}}"></text>
+					</view>
+				</view>
+				<view class="flex justify-around margin-top-sm">
+					<!-- 第二名 -->
+					<view class="padding-top-xl">
+						<view class="relative flex justify-center">
+							<image class="icon-160" src="/static/image/yq_bd2.png" mode="widthFix"></image>
+							<image a:if="{{rankList.RankingVersionList[1]}}" class="icon-100 userImg radius-all" src="{{rankList.RankingVersionList[1].HeadImg}}" mode="widthFix"></image>
+							<image a:else class="icon-100 userImg radius-all" src="/static/image/xwyd.png" mode="widthFix"></image>
+						</view>
+						<view class="text-center text-28 bold text-FF4C5B margin-top-xs" a:if="{{rankList.RankingVersionList[1]}}">
+							{{rankList.RankingVersionList[1].NickName?rankList.RankingVersionList[1].NickName:rankList.RankingVersionList[1].UserName}}
+						</view>
+						<view a:else class="text-center text-28 bold text-FF4C5B margin-top-xs" >
+							虚位以待
+						</view>
+						<view class="text-center text-24 text-666666 margin-top-xs" a:if="{{rankList.RankingVersionList[1]}}">
+							已赚{{rankList.RankingVersionList[1].Income}}集分宝
+						</view>
+					</view>
+					<!-- 第一名 -->
+					<view class="" >
+						<view class="relative flex justify-center">
+							<image class="icon-160" src="/static/image/yq_bd1.png" mode="widthFix"></image>
+							<image a:if="{{rankList.RankingVersionList[0]}}" class="icon-100 userImg radius-all" src="{{rankList.RankingVersionList[0].HeadImg}}" mode="widthFix"></image>
+							<image a:else class="icon-100 userImg radius-all" src="/static/image/xwyd.png" mode="widthFix"></image>
+						</view>
+						<view class="text-center text-28 bold text-FF4C5B margin-top-xs" a:if="{{rankList.RankingVersionList[0]}}">
+							{{rankList.RankingVersionList[0].NickName?rankList.RankingVersionList[0].NickName:rankList.RankingVersionList[0].UserName}}
+						</view>
+						<view a:else class="text-center text-28 bold text-FF4C5B margin-top-xs" >
+							虚位以待
+						</view>
+						<view class="text-center text-24 text-666666 margin-top-xs" a:if="{{rankList.RankingVersionList[0]}}">
+							已赚{{rankList.RankingVersionList[0].Income}}集分宝
+						</view>
+					</view>
+					<!-- 第三名 -->
+					<view class="padding-top-xl">
+						<view class="relative flex justify-center">
+							<image class="icon-160" src="../../../static/image/yq_bd3.png" mode="widthFix"></image>
+							<image a:if="{{rankList.RankingVersionList[2]}}" class="icon-100 userImg radius-all" src="{{rankList.RankingVersionList[2].HeadImg}}" mode="widthFix"></image>
+							<image a:else class="icon-100 userImg radius-all" src="/static/image/xwyd.png" mode="widthFix"></image>
+						</view>
+						<view class="text-center text-28 bold text-FF4C5B margin-top-xs" a:if="{{rankList.RankingVersionList[2]}}">
+							{{rankList.RankingVersionList[2].NickName?rankList.RankingVersionList[2].NickName:rankList.RankingVersionList[2].UserName}}
+						</view>
+						<view a:else class="text-center text-28 bold text-FF4C5B margin-top-xs" >
+							虚位以待
+						</view>
+						<view class="text-center text-24 text-666666 margin-top-xs" a:if="{{rankList.RankingVersionList[2]}}">
+							已赚{{rankList.RankingVersionList[2].Income}}集分宝
+						</view>
+					</view>
+				</view>
+				<!-- 第三名以下 -->
+				<view class="margin-top" a:if="{{rankList.RankingVersionList.length>3}}">
+					<view class="flex justify-between padding-sm" a:for="{{rankList.RankingVersionList}}"  a:for-index="index" a:if="{{index>2}}" >
+						<view class="flex align-center">
+							<image class="icon-80 radius-all" src="{{item.HeadImg?item.HeadImg:'/static/image/moren.png'}}" mode="widthFix"></image>
+							<text class="text-26 text-black margin-left-sm">{{item.NickName?item.NickName:item.UserName}}</text>
+						</view> 
+						<view class="flex align-center ">
+							<image class="icon-34" src="../../../static/image/jb.png" mode="widthFix"></image>
+							<text class="text-26 text-black margin-left-sm">{{item.Income}}集分宝</text>
+						</view>
+					</view>
+				</view>
+				<view class="" style="margin-top:200rpx" a:else>
+						<view class="text-center">
+							<image  class="icon-100  radius-all" src="/static/image/xwyd.png" mode="widthFix"></image>
+							<view class="text-24 text-666666 text-center padding-sm">
+								暂无更多数据
+							</view>
+						</view>
+				</view>
+				
+			</view>
+		</view>
+	</view>

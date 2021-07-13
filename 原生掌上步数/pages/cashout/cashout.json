@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "省钱购",
+  "allowsBounceVertical": "NO",
+  "titleBarColor": "#FFFFFF",
+  "transparentTitle": "none",
+  "titlePenetrate": "YES",
+  "usingComponents": {
+     "ad-list": "plugin://myPlugin/ad-list",
+     "feeds": "plugin://xlightPlugin/feeds"
+  }
+}

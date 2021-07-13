@@ -1,0 +1,35 @@
+page{
+  background-color: #f7f7f7
+}
+.jd{
+  width: 200rpx;
+  height: 20rpx;
+  opacity: 1;
+  background: #ffffff;
+  border-radius: 10rpx;
+}
+.jd .child{
+  border-radius: 10rpx;
+}
+.bg-duihuan{
+  width: 550rpx;
+  margin:0 auto;
+  height: 666rpx;
+  background-image: url('/static/image/tc.webp');
+  background-size:contain;
+  background-position: center;
+  padding-top: 230rpx;
+  background-repeat: no-repeat;
+}
+.bg-duihuan .button{
+  width: 450rpx;
+  margin: 0 auto;
+  text-align: center;
+height: 84rpx;
+line-height: 84rpx;
+opacity: 1;
+background: linear-gradient(180deg,#97cfff, #3fa2f6);
+border-radius: 42px;
+margin-top: 50rpx;
+color:#fff
+}

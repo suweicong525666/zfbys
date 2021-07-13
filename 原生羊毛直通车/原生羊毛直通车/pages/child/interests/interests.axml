@@ -1,0 +1,27 @@
+<view>
+  <image style="width:100%" mode="widthFix" src="/static/image/qy.png"/>
+</view>
+<view class="bg-white margin-lr-sm radius-20 padding-sm relative" style="margin-top:-1rem" a:if="{{list}}">
+    <view class="flex justify-between align-center  radius-20 padding-15 {{index%2==0?'bg':''}}  {{index%2==1?'bg1':''}} {{index!=list.length-1?'margin-bottom-sm':''}}" a:for="{{list}}">
+        <view class="flex">
+            <image class="img" mode="scaleToFill" src="/static/image/toux2.webp"/>
+            <view class="padding-top-xs margin-left-sm">
+                <view class="text-black text-30 bold">
+                    {{item.Title}}
+                </view>
+                <view class="flex align-end margin-top-sm">
+                    <view class="flex align-end">
+                       <text class="text-22 text-666666 padding-bottom-xs">{{item.QRemark}}</text>
+                      <text class="text-46 text-DF4640">{{item.ZRemark}}</text>
+                      <text class="text-24 text-DF4640 padding-bottom-xs" a:if="{{item.ZRemark}}">元</text>
+                       <text class="text-22 text-666666 padding-bottom-xs">{{item.HRemark}}</text>
+                    </view>
+                   
+                </view>
+            </view>
+        </view>
+        <view>
+            <text data-JumpType="{{item.JumpType}}" data-item="{{item}}"  onTap="tabNav" class="{{index%2==0?'':'button1'}} {{index%2==1?'':'button0'}}">去领取</text>
+        </view>
+    </view>
+</view>

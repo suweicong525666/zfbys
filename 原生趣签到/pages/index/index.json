@@ -1,0 +1,13 @@
+{
+  "defaultTitle": "趣签到",
+  "allowsBounceVertical": "NO",
+  "titleBarColor": "#FFFFFF",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+    "usingComponents": {
+       "subscribe-msg": "plugin://subscribeMsg/subscribe-msg",
+      "ad-task": "plugin://myPlugin/ad-task",
+      "modal":"/components/modal/modal",
+      "feeds": "plugin://xlightPlugin/feeds"
+  }
+}

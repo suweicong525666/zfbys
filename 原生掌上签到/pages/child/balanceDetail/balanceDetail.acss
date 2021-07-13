@@ -1,0 +1,17 @@
+.border-b{
+	width: 120rpx;
+	height: 4rpx;
+	opacity: 1;
+	background: #FFBD00;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.text-FF4C5B .text-F5741D{
+  color: #FFBD00
+}
+.text-red{
+  color: #FFBC12;
+}

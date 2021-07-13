@@ -1,0 +1,9 @@
+{
+   "defaultTitle": "活动规则",
+  "pullRefresh": false,
+  "titleBarColor": "#AA09CC",
+  "allowsBounceVertical": "NO",
+  "transparentTitle": "no",
+  "titlePenetrate": "YES",
+  "usingComponents": {}
+}

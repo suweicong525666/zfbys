@@ -1,0 +1,192 @@
+
+<view style="height:20rpx"></view>
+<view class="top">
+    <view class="flex justify-between padding-left-xs padding-right-sm">
+        <view class="flex">
+           <view class="top-img">
+              <image class="icon-120 radius-all"style="margin-bottom:-35rpx"  mode="scaleToFill" src="{{userInfo.data.HeadImg?userInfo.data.HeadImg:'/static/image/moren.png'}}"/>
+              <view  class="relative">
+                 <image class="img_huiyuan" mode="scaleToFill" src="/static/image/huiyuan.webp"/>
+                 <text class="huiyuan_text">{{userInfo.data.MemberStr}}</text>
+              </view>
+           </view>
+            <view class="padding-top margin-left-sm">
+                <view class="text-32 text-black bold">
+                  {{userInfo.data.NickName==''?'这家伙很懒,还没有昵称':userInfo.data.NickName}}
+                </view>
+                <view class="text-26 text-8B8B8B margin-top-xs">
+                  ID：{{userInfo.data.AccountId}}
+                </view>
+            </view>
+        </view>
+         <view class="padding-top">
+            <view class="text-FF7F06 text-26 ">
+               余额：{{userInfo.money}}
+            </view>
+            <view class="tixian margin-top-sm" onTap="Withdraw">
+                <text class="text-white text-26">提现</text>
+            </view>
+        </view>
+    </view>
+    <view class="grid col-2 ">
+        <view class="text-center relative" onTap="jump" data-index="0">
+            <text class="lb"></text>
+            <view class="text-32 text-666666">
+              任务奖励金(元)
+            </view>
+            <view class="text-28 text-FF7F06 margin-top-sm flex justify-center">
+                <text class="bold">{{userInfo.taskmoney}}</text>
+                <image class="margin-left-xs icon-30" mode="scaleToFill" src="/static/image/next2.webp"/>
+            </view>
+        </view>
+        <view class="text-center"  onTap="jump" data-index="1">
+            <view class="text-32 text-666666">
+              邀请奖励金(元)
+            </view>
+            <view class="text-28 text-FF7F06 margin-top-sm flex justify-center">
+                <text class="bold">{{userInfo.invitation}}</text>
+                <image class="margin-left-xs icon-30" mode="scaleToFill" src="/static/image/next2.webp"/>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="padding-top padding-lr-sm" a:if="{{userInfo.data.Ispublic==0}}">
+    <view class="bg-white radius-20 padding-lr padding-tb-xs">
+        <view class="flex justify-between padding-top-xs solid-bottom padding-bottom-sm">
+            <view class="flex align-center">
+                <image class="icon-40" mode="scaleToFill" src="/static/image/vip.png"/>
+                <text class="text-28 text-black margin-left-sm">会员权益</text>
+            </view>
+            <view>
+               <text class="text-26">{{userInfo.data.EndTime}}</text>
+               <text class="button1 margin-left-sm" onTap="huiyuan">会员续费</text>
+            </view>
+        </view>
+        <view class="flex justify-between">
+            <view class="flex justify-between align-center padding-right" style="width:50%" onTap="vipJump" data-index="0">
+              <view>
+                <view>
+                   <text class="text-black text-30">现金红包</text>
+                </view>
+                 <view>
+                   <text class="text-999999 text-20">每日多赚0.88元</text>
+                </view>
+              </view>
+              <image class="icon-100" mode="scaleToFill" src="/static/image/zu2.png"/>
+            </view>
+            <view class="flex justify-between align-center padding-left" style="width:50%" onTap="vipJump" data-index="2">
+               <view>
+                <view>
+                   <text class="text-black text-30">邀请奖励</text>
+                </view>
+                 <view>
+                   <text class="text-999999 text-20">邀请成功赚1.59元</text>
+                </view>
+              </view>
+              <image class="icon-100" mode="scaleToFill" src="/static/image/zu1.png"/>
+            </view>
+        </view>
+         <view class="flex justify-between margin-top-sm">
+            <view class="flex justify-between align-center padding-right" style="width:50%" onTap="vipJump" data-index="1">
+              <view>
+                    <view>
+                      <text class="text-black text-30">下级佣金</text>
+                    </view>
+                    <view>
+                      <text class="text-999999 text-20">邀请好友赚佣金</text>
+                    </view>
+              </view>
+              <image class="icon-100" mode="scaleToFill" src="/static/image/zu4.png"/>
+            </view>
+            <view class="flex justify-between align-center padding-left" style="width:50%" onTap="vipJump" data-index="3">
+               <view>
+                    <view>
+                      <text class="text-black text-30">特享优惠</text>
+                    </view>
+                    <view>
+                      <text class="text-999999 text-20">专属优惠畅快领</text>
+                    </view>
+              </view>
+              <image class="icon-100" mode="scaleToFill" src="/static/image/zu3.png"/>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="grid col-2 center" a:else>
+    <view class="padding-top-sm padding-left-sm" onTap="jump" data-index="2">
+        <view class="flex align-centerr">
+            <image class="icon-40" mode="scaleToFill" src="/static/image/vip.webp"/>
+            <text class="text-white text-32 margin-left-xs bold">开通VIP</text>
+        </view>
+        <view class="text-22 text-white margin-top-sm margin-left-xs" style="width:2.8rem;line-height:0.4rem">
+          开通VIP,尊享各种任务福利 每天赚取更多现金
+        </view>
+        <view>
+          <text class="kt">立即开通</text>
+        </view>
+    </view>
+     <view class="padding-top-sm padding-left-sm"  onTap="jump" data-index="3"> 
+        <view class="flex align-centerr">
+            <image class="icon-40" mode="scaleToFill" src="/static/image/yqhy.webp"/>
+            <text class="text-white text-32 margin-left-xs bold">邀请好友</text>
+        </view>
+        <view class="text-22 text-white margin-top-sm margin-left-xs" style="width:2.8rem;line-height:0.4rem">
+          邀请好友，赚取更多 邀请有奖，固定佣金每日结算
+        </view>
+        <view>
+          <text class="kt" style="color:#7189FF">立即开通</text>
+        </view>
+    </view>
+</view>
+
+	<view class="bg-white radius-20 margin-bottom-sm margin-lr-sm padding-lr margin-top">
+				<view  class="flex justify-between align-center  padding-tb relative solid-bottom">
+					<view class="flex align-center">
+						<image class="icon-40" src="../../static/image/wd_kf.webp" mode="widthFix"></image>
+						<text class="text-28 text-black margin-left">在线客服</text>
+					</view>
+					<text class="text-24 text-999999 cuIcon-right margin-left-xs"></text>
+					<contact-button tnt-inst-id="xub_RdSh" scene="SCE01044388" class="flex justify-between padding-lr padding-tb" style="width: 100%;"/>
+				</view>
+				<view  class="flex justify-between align-center  padding-tb solid-bottom"  onTap="jump_feedBack">
+					<view class="flex align-center">
+						<image class="icon-40" src="../../static/image/wd_jy.webp" mode="widthFix"></image>
+						<text class="text-28 text-black margin-left">建议反馈</text>
+					</view>
+					<text class="text-24 text-999999 cuIcon-right margin-left-xs"></text>
+				</view>
+				<view  class="flex justify-between align-center padding-tb" onTap="jump_myFeedback">
+					<view class="flex align-center">
+						<image class="icon-40" src="../../static/image/wd_fk.webp" mode="widthFix"></image>
+						<text class="text-28 text-black margin-left">我的反馈</text>
+					</view>
+					<text class="text-24 text-999999 cuIcon-right margin-left-xs"></text>
+				</view>
+				
+			</view>
+
+<!-- 权益弹窗 -->
+<view a:if="{{modalname=='qygg'}}">
+    <view class="modal"></view>
+    <view class="modal-main">
+       <view class="flex justify-center">
+          <view class="ggBg">
+              <view class="text-36 text-925931 text-center bold padding-top">
+                权益公告
+              </view>
+              <view class="text-32 text-925931 text-left" style="width:4.2rem;margin:50rpx auto">
+                  <text class="text-left" a:if="{{ggIndex==0}}">尊敬的会员，每日完成首页任务即可领取0.88元现金红包，快去完成吧~</text>
+                  <text class="text-left" a:else>尊敬的会员，下级每日完成现金红包任务，您可以获得总计5%的佣金奖励</text>
+              </view>
+              <view class="close" onTap="closeModal">
+                  确认
+              </view>
+          </view>
+       </view>
+        <view class="text-center margin-top-sm">
+              <image onTap="closeModal" class="icon-60" mode="scaleToFill" src="/static/image/del.png"/>
+          </view>
+    </view>
+</view>

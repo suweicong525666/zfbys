@@ -1,0 +1,26 @@
+{
+  "modes": [
+    {
+      "title": "ceshi",
+      "page": "pages/index/index",
+      "pageQuery": "channel=alive_tb"
+    },
+    {
+      "title": "签到页",
+      "page": "pages/child/sign/sign"
+    },
+    {
+      "title": "dsds",
+      "page": "pages/index/index",
+      "pageQuery": "yunmaid=tderer"
+    },
+    {
+      "title": "金币兑换",
+      "page": "pages/child/exchange/exchange"
+    },
+    {
+      "title": "1",
+      "page": "pages/child/invitation/invitation"
+    }
+  ]
+}

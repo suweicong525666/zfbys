@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "优惠福利",
+  "titleBarColor": "#FB3C0F",
+  "allowsBounceVertical": "NO",
+  "transparentTitle": "auto",
+  "usingComponents": {
+      "feeds": "plugin://xlightPlugin/feeds"
+  }
+}

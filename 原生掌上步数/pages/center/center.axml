@@ -1,0 +1,203 @@
+<view class="">
+		<view class="relative">
+			<view class="top_bg">
+				
+			</view>
+			<view class="userInfo">
+				<view class="flex justify-between align-center padding-left padding-right">
+					<view class="flex">
+						<image class="icon-120 radius-all" src="{{userInfo.HeadImg?userInfo.HeadImg:'/static/image/moren.png'}}" mode="aspectFit"></image>
+						<view class="margin-left-sm padding-top-sm">
+							<view class="text-white text-34">
+								{{userInfo.NickName?userInfo.NickName:userInfo.UserName}}
+							</view>
+							<view class="text-white text-24 margin-top-xs">
+								ID：{{userInfo.AccountId}}
+							</view>
+						</view>
+					</view>
+					<view class="flex justify-end" onTap="jump_balance"  style="width:100rpx">
+						<text class="lg text-white cuIcon-right" ></text>
+					</view>
+				</view>
+				<view class="grid col-2 margin-top-xl bg-white margin-sm radius-20 yue-col">
+					<view class="text-center flex justify-between align-center padding-right" style="border-right:1rpx solid #E5E5E5" onTap="jump_balance" >
+                <view class="flex align-center">
+                      <image class="icon-70" mode="scaleToFill" src="/static/image/yue.webp"/>
+                      <view class="margin-left-sm">
+                          <view class="text-36 bold text-black text-left">
+                              {{userInfo.Money?userInfo.Money:'0.00'}}
+                      </view>
+                    <view class="text-24 text-666666 margin-top-sm">
+                      我的余额
+                    </view>
+                </view>
+            </view>
+             <text class="lg text-666666 cuIcon-right" ></text>
+					</view>
+					<view class="text-center flex align-center justify-between padding-left-sm" onTap="jump_myCoin" data-index="0">
+              <view class="flex align-center">
+                   <image class="icon-70" mode="scaleToFill" src="/static/image/jinbi.webp"/>
+                    <view class="margin-left-sm">
+                        <view class="text-36 bold text-black text-left">
+                          {{userInfo.Coin?userInfo.Coin:'0.00'}}
+                      </view>
+                      <view class="text-24 text-666666 margin-top-15">
+                        我的金币
+                      </view>
+                    </view>
+              </view>
+              <text class="lg text-666666 cuIcon-right" ></text>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="margin-lr-sm" style="margin-top:110rpx">
+			<!-- 轮播图 -->
+			<view class="relative" >
+        <view class="text-center margin-top-sm relative flex align-center justify-center" a:if="{{syalggList&&userInfo.NumberCompletions>=syalggList[0].NumberPopups&&syalggList[0].IsDone==false&&alBanShow}}">
+          <image style="width:100%" src="../../static/image/xs.png" mode="widthFix"></image>
+          <view class="xianshiText flex align-center">
+            <image class="icon-30" src="/static/image/jfb.png" mode="widthFix"></image>
+            <text class="text-22 text-black">点击浏览广告，可随机获得</text>
+            <text class="text-22 text-F5741D">1~{{syalggList[0].RewardAmount+1}}个集分宝</text>
+          </view>
+      </view>
+				<view  class="flex justify-center  margin-bottom-sm" data-num="{{syalggList[0].NumberPopups}}" data-modalInfo="{{syalggList[0].IsDone}}" data-item="{{syalggList[0]}}" data- onTap="jump_banner">
+					<ad a:if="{{verShow}}" class="ad1"
+					unit-id ="ad_tiny_2021002145669883_202105212200011761"
+           onLoad ="onRenderSuccess"
+					/>
+				</view>
+			</view>
+			<view class="bg-white radius-20 margin-bottom-sm">
+      	<view  class="flex justify-between align-center margin-lr padding-tb solid-bottom" onTap="jump_myCoin" data-index="1">
+              <view class="flex align-center">
+                <image class="icon-40" src="../../static/image/icon_1.webp" mode="widthFix"></image>
+                <text class="text-28 text-black margin-left">兑换记录</text>
+              </view>
+              <text class="text-24 text-999999 cuIcon-right margin-left-xs"></text>
+				</view>
+        <view  class="flex justify-between align-center margin-lr padding-tb solid-bottom" onTap="jump_invation">
+              <view class="flex align-center">
+                <image class="icon-40" src="../../static/image/icon_2.webp" mode="widthFix"></image>
+                <text class="text-28 text-black margin-left">邀请好友</text>
+              </view>
+              <text class="text-24 text-999999 cuIcon-right margin-left-xs"></text>
+				</view>
+        <view  class="flex justify-between align-center margin-lr solid-bottom padding-tb" onTap="jump_myFeedback">
+              <view class="flex align-center">
+                <image class="icon-40" src="../../static/image/icon_3.webp" mode="widthFix"></image>
+                <text class="text-28 text-black margin-left">我的反馈</text>
+              </view>
+              <text class="text-24 text-999999 cuIcon-right margin-left-xs"></text>
+				</view>
+        <view  class="flex justify-between align-center margin-lr solid-bottom padding-tb"  onTap="jump_feedBack">
+              <view class="flex align-center">
+                <image class="icon-40" src="../../static/image/icon_4.webp" mode="widthFix"></image>
+                <text class="text-28 text-black margin-left">建议反馈</text>
+              </view>
+              <text class="text-24 text-999999 cuIcon-right margin-left-xs"></text>
+				</view>
+        <!-- <view  class="flex justify-between align-center margin-lr padding-tb solid-bottom" onTap="jump_myFeedback">
+              <view class="flex align-center">
+                <image class="icon-40" src="../../static/image/wd_fk.png" mode="widthFix"></image>
+                <text class="text-28 text-black margin-left">用户设置</text>
+              </view>
+              <text class="text-24 text-999999 cuIcon-right margin-left-xs"></text>
+				</view> -->
+				<view  class="flex justify-between align-center padding-lr padding-tb relative">
+					<view class="flex align-center">
+						<image class="icon-40" src="../../static/image/icon_6.webp" mode="widthFix"></image>
+						<text class="text-28 text-black margin-left">在线客服</text>
+					</view>
+					<text class="text-24 text-999999 cuIcon-right margin-left-xs"></text>
+					<contact-button tnt-inst-id="xub_RdSh" scene="SCE01044388" class="flex justify-between padding-lr padding-tb" style="width: 100%;"/>
+				</view>
+			</view>
+		</view>
+	</view>
+
+  
+
+
+
+    	<!-- 	普通广告模态框弹窗 -->
+		<view class="" a:if="{{modalShow&&modalname==''}}" >
+			<view class="modal"></view>
+		<view class="modal-main">
+				<view class="relative text-center">
+					<image src="../../static/image/jinbi3.png" mode="widthFix"></image>
+					<view class="text-26 text-666666 text-center" style="position:absolute;width:100%;top:370rpx">
+						<view class="">
+							恭喜获得
+						</view>
+						<view class="bold margin-top main_huode" style="">
+							<text style="font-size:28rpx">+</text><text style="font-size:70rpx">{{RewardAmount}}</text><text style="font-size:28rpx">{{modalType==1?'金币':'集分宝'}}</text>
+						</view>
+						<view class="dasheds" a:if="{{rw_alBanShow}}"></view>
+            <view class="text-999999" a:if="{{rw_alBanShow}}">
+                下方有福利，点击查看
+            </view>
+						<view class="margin-top-lg padding-lr relative">
+							<ad a:if="{{verShow}}" class="modal-ad1"
+							unit-id ="ad_tiny_2021002129606766_202104192200008894"
+               onLoad ="onRenderSuccess_rwwc"
+							/>
+						</view>
+					</view>
+					
+					<view class="margin-top">
+						<image onTap="closeModal" class="icon-70" src="../../static/image/del.png" mode="widthFix"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+
+    		<!-- 	特殊广告模态框弹窗 -->
+			<view class="" a:if="{{modalname=='ts'}}">
+				<view class="modal"></view>
+				<view class="modal-main">
+					<view class="relative text-center">
+						<image src="../../static/image/jinbi3.png" mode="widthFix"></image>
+						<view class="text-26 text-666666 text-center" style="position:absolute;width:100%;top:400rpx">
+							<view class="">
+								恭喜获得
+							</view>
+							<view class="bold margin-top-xs" style="color:#F94982;font-size:28rpx">
+								<text style="font-size:28rpx">+</text><text style="font-size:70rpx">{{RewardAmount}}</text><text style="font-size:28rpx">{{modalType==1?'金币':'集分宝'}}</text>
+							</view>
+							<view class="margin-top" a:if="{{tsrw_alBanShow}}">
+								点击下图再领一次，让奖励翻倍！
+							</view>
+              	<view class="dasheds"></view>
+              	<view  class="margin-top-lg padding-lr relative"  onTap="jump_bannerSecond" data-num="{{tsrwggList[0].NumberPopups}}" data-modalInfo="{{tsrwggList[0].IsDone}}" data-item="{{tsrwggList[0]}}">
+								<ad a:if="{{verShow}}" class="modal-ad1"
+								unit-id ="{{tsrwggList[0].APPID}}"
+                 onLoad ="onRenderSuccess_tswc"
+								/>
+								<!-- <swiper class="screen-swipers modal-ad2 {{dotStyle?'square-dot':'round-dot'}}"  a:if="{{tsggList2.length>0}}"  :indicator-dots="true" :circular="true"
+								 :autoplay="false" interval="5000" duration="500">
+								 <swiper-item a:for="{{tsggList2}}">
+									 <view class=""  onTap="tabNav" data-JumpType="{{item.JumpType}}" data-item="{{item}}">
+									 	<image src="{{item.Img}}" mode="scaleToFill" style="width: 600rpx;height: 130rpx"></image>
+									 </view>
+								 </swiper-item>
+								</swiper> -->
+							</view>
+						</view>
+						
+						<view class="margin-top">
+							<image onTap="closeModal" class="icon-70" src="../../static/image/del.png" mode="widthFix"></image>
+						</view>
+					</view>
+				</view>
+			</view>
+
+       <feeds  
+        spaceCode="ad_tiny_2021002145669883_202106152200013422"
+        onRenderSuccess="onRenderSuccess_last"
+        onRenderFail="onRenderFail_last"
+        onSaveRef="onSaveRef"
+      > 

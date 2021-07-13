@@ -1,0 +1,43 @@
+.toptext{
+  padding-left: 90rpx
+}
+.text-FC4A10{
+  color:#FC4A10
+} 
+.ami{
+		animation: myfirst 1s linear 1s infinite alternate;
+	}
+	@keyframes myfirst
+	{
+		0% {
+			transform: translateY(0);
+		}
+		100% {transform: translateY(20px)}
+	}
+page {
+  background: #f7f7f7;
+}
+.jdbox{
+  position: absolute;
+  left: 50%;
+  bottom: 20rpx;
+  transform: translate(-50%)
+}
+.jd{
+  width: 690rpx;
+height: 34rpx;
+line-height: 34rpx;
+opacity: 1;
+background: #ffffff;
+border: 2rpx solid #f2c474;
+border-radius: 19rpx;
+text-align: left;
+}
+.jd .child{
+  width: 149rpx;
+height: 31rpx;
+opacity: 1;
+background: linear-gradient(180deg,#ffff5d, #3dc4d4);
+border-radius: 15rpx;
+display: inline-block
+}

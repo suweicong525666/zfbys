@@ -1,0 +1,28 @@
+<view class="text-center relative">
+    <image mode="widthFix" style="width:100%" src="/static/image/bj3.jpg"/>
+    <view class="flex justify-center align-center jdbox">
+        <view class="jd">
+            <view class="child relative" style="width:{{nowtime/BrowseTime*100}}%">
+                <view class="text-white" style="position:absolute;top:-0.5rem;right:-20rpx;">
+                    <view>
+                      {{nowtime}}s
+                    </view>
+                    <view class="flex" style="margin-top:-10rpx">
+                        <text class="cuIcon-triangledownfill lg text-white"></text>
+                    </view>
+                </view>
+            </view>
+            
+        </view>
+    </view>
+</view>
+
+<view class="padding-left text-32  margin-top-xs flex align-center">
+        <text class="text-black bold">优质爆款，每日上新</text>
+    </view>
+<feeds  
+        spaceCode="ad_tiny_2021002135640940_202106152200013433"
+        onRenderSuccess="onRenderSuccess_last"
+        onRenderFail="onRenderFail_last"
+        onSaveRef="onSaveRef"
+      >

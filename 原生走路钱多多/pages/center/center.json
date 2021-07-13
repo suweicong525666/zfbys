@@ -1,0 +1,8 @@
+{
+   "defaultTitle": "个人中心",
+  "transparentTitle": "always",
+  "titlePenetrate": "YES",
+  "usingComponents": {
+      "feeds": "plugin://xlightPlugin/feeds"
+  }
+}

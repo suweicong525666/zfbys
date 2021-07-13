@@ -1,0 +1,25 @@
+.top-l{
+  width: 345rpx;height: 200rpx;
+  background-image: url('/static/image/jrjl.webp');
+  background-position: center;
+  background-size: 100% 100%;
+  padding-top: 35rpx;
+  padding-left: 30rpx
+}
+.top-r{
+  width: 345rpx;height: 200rpx;
+  background-image: url('/static/image/ljjl.webp');
+  background-position: center;
+  background-size: 100% 100%;
+  padding-top: 35rpx;
+  padding-left: 30rpx
+}
+.text-0646DE{
+  color:#0646DE
+}
+.text-C2681B{
+  color: #C2681B
+}
+.text-F97822{
+  color:#F97822
+}

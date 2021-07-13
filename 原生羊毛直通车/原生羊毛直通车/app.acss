@@ -1,0 +1,7 @@
+page {
+  background: #f7f7f7;
+}
+@import '/components/colorui/main.acss';
+@import '/components/colorui/icon.acss';
+@import '/components/colorui/common.acss';
+@import "/components/colorui/Animations.acss";
